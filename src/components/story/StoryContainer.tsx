@@ -13,10 +13,12 @@ const StoryContainer: React.FC<Props> = (props) => {
 
   return (
     <div className='max-w-11xl mx-auto w-full px-4 flex-1 flex'>
-      <div className='flex flex-col flex-1 pt-[160px]'>
-        <h1 className='text-6xl font-bold text-primary-500'>{title}</h1>
-        <h1 className='text-6xl font-bold text-primary-500 mb-12'>{title2}</h1>
-        <div className='text-sm text-secondary-500 flex flex-col gap-6'>{children}</div>
+      <div className='flex flex-col flex-1 pt-[160px] pb-10'>
+        <h1 className='text-6xl font-bold text-primary-700'>{title}</h1>
+        <h1 className='text-6xl font-bold text-primary-700 mb-12'>{title2}</h1>
+        <div className='text-sm text-secondary-500 flex flex-col gap-6'>
+          {children}
+        </div>
       </div>
       <div className='relative min-h-[calc(100vh-128px)] w-1/3'>
         <Image

@@ -4,7 +4,7 @@ const RedScene = () => {
   return (
     <StoryContainer
       title='A RED Scence'
-      title2='for GEN-Z'
+      title2='For GEN-Z'
       pfp='/assets/pfps/dan-5.png'
       alt='Dan'
     >
