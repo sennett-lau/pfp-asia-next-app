@@ -1,5 +1,6 @@
 'use client'
-import { useState } from 'react'
+import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import NavItem from './NavItem'
 import NavList from './NavList'
 
@@ -69,7 +70,13 @@ const navItems = [
 
 const NavBar = () => {
   const [showListIndex, setShowListIndex] = useState<number | null>(null)
-  
+
+  const pathname = usePathname()
+
+  useEffect(() => {
+    setShowListIndex(null)
+  }, [pathname])
+
   return (
     <div className='flex gap-2 items-center'>
       {navItems.map((item, index) => {
