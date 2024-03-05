@@ -2,9 +2,20 @@ import '@/components/common/Header'
 import Header from '@/components/common/Header'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
+const geomanist = localFont({
+  src: [
+    {
+      path: '../font/geomanist-regular-webfont.woff2',
+      weight: '500',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-geomanist',
+})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -18,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
+      <body className={`${geomanist.variable} ${inter.className}`}>
         <Header />
         <main className='flex min-h-screen flex-col items-center justify-between'>
           {children}
