@@ -4,9 +4,11 @@ const StoryLayout = ({
 }: Readonly<{
   children: ReactNode
 }>): ReactElement => {
-  return <div
-    className='w-full flex-1 flex justify-center items-center bg-light-500'
-  >{children}</div>
+  return (
+    <div className='w-full flex-1 flex flex-col justify-center items-center bg-light-500'>
+      {children}
+    </div>
+  )
 }
 
 export default StoryLayout
