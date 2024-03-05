@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        'index': 'url(/assets/index-background.png)',
+        index: 'url(/assets/index-background.png)',
       },
       colors: {
         primary: {
@@ -25,6 +25,12 @@ const config: Config = {
         light: {
           500: '#FDD5BD', // background
         },
+      },
+      maxWidth: {
+        '8xl': '88rem',
+        '9xl': '96rem',
+        '10xl': '104rem',
+        '11xl': '112rem',
       },
     },
   },
