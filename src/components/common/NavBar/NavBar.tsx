@@ -1,4 +1,7 @@
+'use client'
+import { useState } from 'react'
 import NavItem from './NavItem'
+import NavList from './NavList'
 
 const navItems = [
   {
@@ -15,35 +18,36 @@ const navItems = [
   { text: 'GALLERY', href: '/gallery' },
   { text: 'REDEX', href: 'https://red.pfp.asia' },
   {
+    text: 'x',
     icon: '/assets/icons/x.svg',
     list: [
       {
-        text: 'PFPAsia ↗',
+        text: 'PFPAsia',
         href: 'https://x.com/PFPAsia',
         isTargetBlank: true,
       },
       {
-        text: 'ERC_1111 ↗',
+        text: 'ERC_1111',
         href: 'https://x.com/ERC_1111',
         isTargetBlank: true,
       },
       {
-        text: 'REDEX_1111 ↗',
+        text: 'REDEX_1111',
         href: 'https://x.com/REDEX_1111',
         isTargetBlank: true,
       },
       {
-        text: 'Koreatown_1111 ↗',
+        text: 'Koreatown_1111',
         href: 'https://x.com/Koreatown_1111',
         isTargetBlank: true,
       },
       {
-        text: 'Nihonmachi_1111 ↗',
+        text: 'Nihonmachi_1111',
         href: 'https://x.com/Nihonmachi_1111',
         isTargetBlank: true,
       },
       {
-        text: 'ChinaTown_1111 ↗',
+        text: 'ChinaTown_1111',
         href: 'https://x.com/ChinaTown_1111',
         isTargetBlank: true,
       },
@@ -64,13 +68,23 @@ const navItems = [
 ]
 
 const NavBar = () => {
+  const [showListIndex, setShowListIndex] = useState<number | null>(null)
+  
   return (
     <div className='flex gap-2 items-center'>
       {navItems.map((item, index) => {
         return (
           <>
             {item.list ? (
-              <></>
+              <NavList
+                key={index}
+                text={item.text}
+                icon={item.icon}
+                list={item.list}
+                listIndex={index}
+                showListIndex={showListIndex}
+                setShowListIndex={setShowListIndex}
+              />
             ) : (
               <NavItem
                 key={index}
