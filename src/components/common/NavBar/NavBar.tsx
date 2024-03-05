@@ -1,0 +1,89 @@
+import NavItem from './NavItem'
+
+const navItems = [
+  {
+    text: 'STORY',
+    list: [
+      { text: 'New Era', href: '/story/new-era' },
+      { text: 'Nvuwa', href: '/story/nvuwa' },
+      { text: 'Asian Raise', href: '/story/asian-raise' },
+      { text: 'RED Scene', href: '/story/red-scene' },
+    ],
+  },
+  { text: 'REDT', href: '/redt' },
+  { text: '$PFPASIA', href: '/pfpasia' },
+  { text: 'GALLERY', href: '/gallery' },
+  { text: 'REDEX', href: 'https://red.pfp.asia' },
+  {
+    icon: '/assets/icons/x.svg',
+    list: [
+      {
+        text: 'PFPAsia ↗',
+        href: 'https://x.com/PFPAsia',
+        isTargetBlank: true,
+      },
+      {
+        text: 'ERC_1111 ↗',
+        href: 'https://x.com/ERC_1111',
+        isTargetBlank: true,
+      },
+      {
+        text: 'REDEX_1111 ↗',
+        href: 'https://x.com/REDEX_1111',
+        isTargetBlank: true,
+      },
+      {
+        text: 'Koreatown_1111 ↗',
+        href: 'https://x.com/Koreatown_1111',
+        isTargetBlank: true,
+      },
+      {
+        text: 'Nihonmachi_1111 ↗',
+        href: 'https://x.com/Nihonmachi_1111',
+        isTargetBlank: true,
+      },
+      {
+        text: 'ChinaTown_1111 ↗',
+        href: 'https://x.com/ChinaTown_1111',
+        isTargetBlank: true,
+      },
+    ],
+  },
+  {
+    text: 'telegram',
+    icon: '/assets/icons/telegram.svg',
+    href: 'https://t.me/PFPAsian',
+    isTargetBlank: true,
+  },
+  {
+    text: 'discord',
+    icon: '/assets/icons/discord.svg',
+    href: 'https://discord.gg/pfpasia',
+    isTargetBlank: true,
+  },
+]
+
+const NavBar = () => {
+  return (
+    <div className='flex gap-2 items-center'>
+      {navItems.map((item, index) => {
+        return (
+          <>
+            {item.list ? (
+              <></>
+            ) : (
+              <NavItem
+                key={index}
+                text={item.text}
+                href={item.href}
+                icon={item.icon}
+              />
+            )}
+          </>
+        )
+      })}
+    </div>
+  )
+}
+
+export default NavBar
