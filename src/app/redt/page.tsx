@@ -151,6 +151,7 @@ const REDT = () => {
       <div className='w-1/3 flex flex-col items-end justify-center gap-12'>
         {sections.map((section, index) => (
           <p
+            key={index}
             className={`text-2xl font-bold cursor-pointer ${sectionIndex === index ? 'text-primary-500' : 'text-secondary-500'} transition-all duration-300`}
             onClick={() => setSectionIndex(index)}
           >
