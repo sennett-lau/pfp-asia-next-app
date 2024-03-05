@@ -35,7 +35,7 @@ const NavList = (props: Props) => {
       </div>
 
       <div
-        className={`w-[149px] absolute -bottom-4 right-0 py-2 px-3 gap-1 bg-light-500 text-xs rounded-md transition-all duration-300 text-secondary-500 translate-y-full flex-col ${showListIndex !== listIndex ? 'hidden' : 'flex'}`}
+        className={`w-[149px] absolute -bottom-4 right-0 py-2 px-3 gap-1 bg-light-500 text-xs rounded-md transition-all duration-300 text-secondary-500 translate-y-full flex-col ${showListIndex !== listIndex ? 'hidden' : 'flex'} shadow-md`}
       >
         {list.map((item, index) => {
           return (
