@@ -12,7 +12,7 @@ const StoryContainer: React.FC<Props> = (props) => {
   const { title, title2, children, pfp, alt } = props
 
   return (
-    <div className='max-w-11xl mx-auto w-[1440px] px-4 flex-1 flex'>
+    <div className='max-w-11xl mx-auto w-full px-4 flex-1 flex'>
       <div className='flex flex-col flex-1 pt-[160px]'>
         <h1 className='text-6xl font-bold text-primary-500'>{title}</h1>
         <h1 className='text-6xl font-bold text-primary-500 mb-12'>{title2}</h1>
