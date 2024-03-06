@@ -81,10 +81,9 @@ const NavBar = () => {
     <div className='flex gap-2 items-center'>
       {navItems.map((item, index) => {
         return (
-          <>
+          <div key={index}>
             {item.list ? (
               <NavList
-                key={index}
                 text={item.text}
                 icon={item.icon}
                 list={item.list}
@@ -94,13 +93,12 @@ const NavBar = () => {
               />
             ) : (
               <NavItem
-                key={index}
                 text={item.text}
                 href={item.href}
                 icon={item.icon}
               />
             )}
-          </>
+          </div>
         )
       })}
     </div>
