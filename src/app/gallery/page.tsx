@@ -11,11 +11,17 @@ export interface IGalleryFilter {
   list: string[]
 }
 
+enum FilterType {
+  REVEALED = 'Revealed',
+  BOXED = 'Boxed',
+  CAN_BE_SWAP = 'Can be Swap',
+}
+
 const filters: IGalleryFilter[] = [
   {
     title: 'Status',
     icon: '/assets/common/status.svg',
-    list: ['Revealed', 'Boxed'],
+    list: [FilterType.REVEALED, FilterType.BOXED, FilterType.CAN_BE_SWAP],
   },
 ]
 
