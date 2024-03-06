@@ -1,3 +1,4 @@
+import { UNISWAP_URL } from '@/config/links'
 import Image from 'next/image'
 import Link from 'next/link'
 const FloatBox = () => {
@@ -14,7 +15,7 @@ const FloatBox = () => {
       </div>
       <p className='mr-4 text-white font-bold text-2xl'>$PFPASIA</p>
       <Link
-        href='https://app.uniswap.org/#/swap?outputCurrency=0x413530a7beB9Ff6C44e9e6C9001C93B785420C32&chain=ethereum'
+        href={UNISWAP_URL}
         className='bg-light-500 px-4 py-2 text-secondary-500 font-xl font-bold hover:text-primary-500 transition-all duration-300'
         target='_blank'
       >

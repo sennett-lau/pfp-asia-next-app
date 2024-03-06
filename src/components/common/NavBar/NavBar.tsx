@@ -1,4 +1,15 @@
 'use client'
+import {
+  DISCORD_URL,
+  PFPASIA_REDEX_URL,
+  TELEGRAM_URL,
+  X_CHINATOWN_1111_URL,
+  X_ERC_1111_URL,
+  X_KOREATOWN_1111_URL,
+  X_NIHONMACHI_1111_URL,
+  X_PFPASIA_URL,
+  X_REDEX_1111_URL,
+} from '@/config/links'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import NavItem from './NavItem'
@@ -17,39 +28,39 @@ const navItems = [
   { text: 'REDT', href: '/redt' },
   { text: '$PFPASIA', href: '/pfpasia' },
   { text: 'GALLERY', href: '/gallery' },
-  { text: 'REDEX', href: 'https://red.pfp.asia' },
+  { text: 'REDEX', href: PFPASIA_REDEX_URL },
   {
     text: 'x',
     icon: '/assets/icons/x.svg',
     list: [
       {
         text: 'PFPAsia',
-        href: 'https://x.com/PFPAsia',
+        href: X_PFPASIA_URL,
         isTargetBlank: true,
       },
       {
         text: 'ERC_1111',
-        href: 'https://x.com/ERC_1111',
+        href: X_ERC_1111_URL,
         isTargetBlank: true,
       },
       {
         text: 'REDEX_1111',
-        href: 'https://x.com/REDEX_1111',
+        href: X_REDEX_1111_URL,
         isTargetBlank: true,
       },
       {
         text: 'Koreatown_1111',
-        href: 'https://x.com/Koreatown_1111',
+        href: X_KOREATOWN_1111_URL,
         isTargetBlank: true,
       },
       {
         text: 'Nihonmachi_1111',
-        href: 'https://x.com/Nihonmachi_1111',
+        href: X_NIHONMACHI_1111_URL,
         isTargetBlank: true,
       },
       {
         text: 'ChinaTown_1111',
-        href: 'https://x.com/ChinaTown_1111',
+        href: X_CHINATOWN_1111_URL,
         isTargetBlank: true,
       },
     ],
@@ -57,13 +68,13 @@ const navItems = [
   {
     text: 'telegram',
     icon: '/assets/icons/telegram.svg',
-    href: 'https://t.me/PFPAsian',
+    href: TELEGRAM_URL,
     isTargetBlank: true,
   },
   {
     text: 'discord',
     icon: '/assets/icons/discord.svg',
-    href: 'https://discord.gg/pfpasia',
+    href: DISCORD_URL,
     isTargetBlank: true,
   },
 ]
@@ -92,11 +103,7 @@ const NavBar = () => {
                 setShowListIndex={setShowListIndex}
               />
             ) : (
-              <NavItem
-                text={item.text}
-                href={item.href}
-                icon={item.icon}
-              />
+              <NavItem text={item.text} href={item.href} icon={item.icon} />
             )}
           </div>
         )
