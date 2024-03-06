@@ -1,5 +1,6 @@
 'use client'
 import GalleryFilter from '@/components/gallery/GalleryFilter'
+import GalleryItems from '@/components/gallery/GalleryItems'
 import { useState } from 'react'
 
 export interface IGalleryFilter {
@@ -29,7 +30,7 @@ const Gallery = () => {
         selectedFilters={selectedFilters}
         setSelectedFilters={setSelectedFilters}
       />
-      <div></div>
+      <GalleryItems />
     </div>
   )
 }
