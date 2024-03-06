@@ -23,6 +23,7 @@ const config: Config = {
           500: '#6E4648', // text
         },
         light: {
+          400: '#FFDFCA', // card
           500: '#FDD5BD', // background
         },
       },

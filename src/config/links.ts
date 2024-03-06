@@ -26,5 +26,5 @@ export const MAGICEDEN_URL =
 // Analytics
 export const DEXSCANNER_URL =
   'https://dexscreener.com/ethereum/0x646946f0518c6ba27f1b2c6b4387ec6035bc42e3'
-export const NFTGO_URL = 'https://nftgo.com/collections/pfpasia'
-export const DUNES_URL = 'https://nftgo.io/collection/pfp-asia/swap'
+export const NFTGO_URL = 'https://nftgo.io/collection/pfp-asia/swap'
+export const DUNE_URL = 'https://dune.com/sennettlau/pfp-asia'
