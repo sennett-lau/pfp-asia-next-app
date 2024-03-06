@@ -1,7 +1,9 @@
 'use client'
 import GalleryFilter from '@/components/gallery/GalleryFilter'
-import GalleryItems from '@/components/gallery/GalleryItems'
-import { useState } from 'react'
+import GalleryItems, { INFTData } from '@/components/gallery/GalleryItems'
+import { PFPASIA_DATA_URL } from '@/config/pfpasia'
+import { formatData } from '@/utils/nft'
+import { useEffect, useState } from 'react'
 
 export interface IGalleryFilter {
   title: string
@@ -21,6 +23,30 @@ const Gallery = () => {
   const [extendedIndices, setExtendedIndices] = useState<number[]>([])
   const [selectedFilters, setSelectedFilters] = useState<string[]>([])
 
+  const [initialData, setInitialData] = useState<INFTData[]>([])
+
+  const fetchInitialData = async () => {
+    const promises = []
+
+    for (let i = 1; i < 21; i++) {
+      promises.push(fetch(`${PFPASIA_DATA_URL}/${i}`))
+    }
+
+    const responses = await Promise.all(promises)
+
+    const jsons = await Promise.all(
+      responses.map((response) => response.json()),
+    )
+
+    const data = jsons.map((json) => formatData(json))
+
+    setInitialData(data)
+  }
+
+  useEffect(() => {
+    fetchInitialData()
+  }, [])
+
   return (
     <div className='max-w-11xl mx-auto w-full px-4 flex-1 flex pt-[128px]'>
       <GalleryFilter
@@ -30,7 +56,7 @@ const Gallery = () => {
         selectedFilters={selectedFilters}
         setSelectedFilters={setSelectedFilters}
       />
-      <GalleryItems />
+      <GalleryItems data={initialData} />
     </div>
   )
 }
