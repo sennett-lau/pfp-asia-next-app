@@ -52,6 +52,7 @@ const Gallery = () => {
   const [showingIndex, setShowingIndex] = useState<number>(20)
 
   const [swappableTokenIds, setSwappableTokenIds] = useState<number[]>([])
+  const [filterString, setFilterString] = useState<string>('')
 
   const fetchData = async () => {
     const data = await getPFPAsiaNFTData()
@@ -110,12 +111,18 @@ const Gallery = () => {
   useEffect(() => {
     if (allData.length === 0) return
 
+    let f: INFTData[] = []
+
     if (selectedFilters.length === 0) {
-      setFilteredData(allData)
+      f = allData
+      if (filterString) {
+        f = f.filter((d) =>
+          d.name.toLowerCase().includes(filterString.toLowerCase()),
+        )
+      }
+      setFilteredData(f)
       return
     }
-
-    let f: INFTData[] = []
 
     if (selectedFilters.includes(FilterType.REVEALED)) {
       f = [...f, ...(filteredMap.get(FilterType.REVEALED) || [])]
@@ -127,6 +134,14 @@ const Gallery = () => {
 
     if (selectedFilters.includes(FilterType.CAN_BE_SWAP)) {
       f = [...f, ...(filteredMap.get(FilterType.CAN_BE_SWAP) || [])]
+    }
+
+    if (filterString) {
+      console.log('filterString: ', filterString)
+      f = f.filter((d) =>
+        d.name.toLowerCase().includes(filterString.toLowerCase()),
+      )
+      console.log('filtered: ', f.length)
     }
 
     // sort by name in ascending order
@@ -143,7 +158,7 @@ const Gallery = () => {
     })
 
     setFilteredData(f)
-  }, [selectedFilters, allData, filteredMap, swappableTokenIds])
+  }, [selectedFilters, allData, filteredMap, swappableTokenIds, filterString])
 
   // infinite scroll
   useEffect(() => {
@@ -202,6 +217,8 @@ const Gallery = () => {
         setExtendedIndices={setExtendedIndices}
         selectedFilters={selectedFilters}
         setSelectedFilters={setSelectedFilters}
+        filterString={filterString}
+        setFilterString={setFilterString}
       />
       <GalleryItems data={filteredData.slice(0, showingIndex)} />
     </div>

@@ -8,6 +8,8 @@ type Props = {
   setExtendedIndices: (indices: number[]) => void
   selectedFilters: string[]
   setSelectedFilters: (filters: string[]) => void
+  filterString: string
+  setFilterString: (filter: string) => void
 }
 
 const GalleryFilter = (props: Props) => {
@@ -17,6 +19,8 @@ const GalleryFilter = (props: Props) => {
     setExtendedIndices,
     selectedFilters,
     setSelectedFilters,
+    filterString,
+    setFilterString,
   } = props
 
   const handleExtend = (index: number) => {
@@ -46,7 +50,13 @@ const GalleryFilter = (props: Props) => {
             width={28}
             height={28}
           />
-          <p className='text-secondary-400'>Search...</p>
+          <input
+            type='text'
+            placeholder='Search...'
+            className='w-full bg-transparent focus:outline-none text-secondary-500 placeholder:text-secondary-400'
+            value={filterString}
+            onChange={(e) => setFilterString(e.target.value)}
+          />
         </div>
         <div className='flex flex-col py-3 gap-3'>
           {filters.map((filter, i) => (
