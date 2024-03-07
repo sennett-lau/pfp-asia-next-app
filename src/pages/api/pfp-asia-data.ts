@@ -3,7 +3,7 @@ import { localCacheGet, localCacheSet } from '@/utils/localCache'
 import axios from 'axios'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-type APIPfpAsiaResData = {
+export type APIPfpAsiaResData = {
   nftData: {
     name: string
     image: string
@@ -43,7 +43,7 @@ const loadAllData = async () => {
         start += batch
       }
     } catch (error) {
-      console.log('error', error)
+      console.log(`error fetching data`)
     }
   }
 }
