@@ -15,7 +15,7 @@ import { useEffect, useState } from 'react'
 import NavItem from './NavItem'
 import NavList from './NavList'
 
-const navItems = [
+export const navItems = [
   {
     text: 'STORY',
     list: [
@@ -66,13 +66,13 @@ const navItems = [
     ],
   },
   {
-    text: 'telegram',
+    text: 'Telegram',
     icon: '/assets/icons/telegram.svg',
     href: TELEGRAM_URL,
     isTargetBlank: true,
   },
   {
-    text: 'discord',
+    text: 'Discord',
     icon: '/assets/icons/discord.svg',
     href: DISCORD_URL,
     isTargetBlank: true,
@@ -89,7 +89,7 @@ const NavBar = () => {
   }, [pathname])
 
   return (
-    <div className='flex gap-2 items-center'>
+    <div className='hidden lg:flex gap-2 items-center'>
       {navItems.map((item, index) => {
         return (
           <div key={index}>

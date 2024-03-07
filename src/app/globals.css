@@ -31,3 +31,47 @@ body {
     text-wrap: balance;
   }
 }
+
+/* hamburger menu with 2 lines */
+.hamburger {
+  display: flex;
+  width: 42px;
+  aspect-ratio: 1/1;
+  padding: 7px;
+  position: relative;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.hamburger span {
+  display: block;
+  width: 28px;
+  height: 2px;
+  background-color: black;
+  position: absolute;
+  transition: all 0.3s ease; /* Ensures smooth transition */
+}
+
+.isIndex .hamburger span {
+  background-color: white !important;
+}
+
+.hamburger .line-1 {
+  top: 50%;
+  transform: translateY(7px);
+}
+
+.hamburger .line-2 {
+  top: 50%;
+  transform: translateY(-7px);
+}
+
+.hamburger.active .line-1 {
+  transform: translateY(-50%) rotate(45deg);
+  background-color: black;
+}
+
+.hamburger.active .line-2 {
+  transform: translateY(-50%) rotate(-45deg);
+  background-color: black;
+}

@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       backgroundImage: {
         index: 'url(/assets/index-background.png)',
+        dan: 'url(/assets/pfps/dan-bg.jpg)',
       },
       colors: {
         primary: {
@@ -25,6 +26,9 @@ const config: Config = {
         light: {
           400: '#FFDFCA', // card
           500: '#FDD5BD', // background
+        },
+        dark: {
+          500: '#121212', // background
         },
       },
       maxWidth: {
