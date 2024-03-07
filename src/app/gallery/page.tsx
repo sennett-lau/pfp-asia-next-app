@@ -99,6 +99,23 @@ const Gallery = () => {
     setFilteredData(f)
   }, [selectedFilters, allData])
 
+  // infinite scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (
+        window.innerHeight + document.documentElement.scrollTop !==
+        document.documentElement.offsetHeight
+      )
+        return
+
+      setShowingIndex((prev) => prev + 20)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <div className='max-w-11xl mx-auto w-full px-4 flex-1 flex pt-[128px]'>
       <GalleryFilter
