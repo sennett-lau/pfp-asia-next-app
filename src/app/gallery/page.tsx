@@ -58,12 +58,6 @@ const Gallery = () => {
     const data = await getPFPAsiaNFTData()
     const formattedData = data.nftData.map((d) => formatData(d))
 
-    console.log('----------------------------------------------')
-    console.log('formattedData: ', formattedData.length)
-    console.log('isAll: ', data.isAll)
-    console.log('data sample: ', formattedData[0])
-    console.log('----------------------------------------------')
-
     setAllData(formattedData)
 
     if (!data.isAll) {
@@ -77,7 +71,6 @@ const Gallery = () => {
 
   const fetchSwappableTokenIds = async () => {
     const tokenIds = await getPFPAsiaSwappable()
-    console.log('swappable: ', tokenIds)
     setSwappableTokenIds(tokenIds)
   }
 
@@ -163,9 +156,18 @@ const Gallery = () => {
   // infinite scroll
   useEffect(() => {
     const handleScroll = () => {
+
+      console.log('----------------------------------------------')
+      console.log(`window.innerHeight: ${window.innerHeight}`)
+      console.log(`document.documentElement.scrollTop: ${document.documentElement.scrollTop}`)
+      console.log(`added: ${window.innerHeight + document.documentElement.scrollTop}`)
+      console.log(`document.documentElement.offsetHeight: ${document.documentElement.offsetHeight}`)
+      console.log(`is it greater than: ${document.documentElement.offsetHeight - 300}`)
+      console.log(`answer: ${window.innerHeight + document.documentElement.scrollTop > document.documentElement.offsetHeight - 300}`)
+      console.log('----------------------------------------------')
       if (
-        window.innerHeight + document.documentElement.scrollTop !==
-        document.documentElement.offsetHeight
+        window.innerHeight + document.documentElement.scrollTop <
+        document.documentElement.offsetHeight - 300
       )
         return
 
@@ -210,7 +212,7 @@ const Gallery = () => {
   }
 
   return (
-    <div className='max-w-11xl mx-auto w-full px-4 flex-1 flex pt-[128px]'>
+    <div className='max-w-11xl mx-auto w-full px-4 flex-1 flex pt-24 md:pt-[128px]'>
       <GalleryFilter
         filters={updateFilterLength(filters)}
         extendedIndices={extendedIndices}
