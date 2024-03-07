@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react'
 export interface IGalleryFilter {
   title: string
   icon: string
-  list: string[]
+  list: { label: string; numDisplay: string }[]
 }
 
 enum FilterType {
@@ -22,7 +22,20 @@ const filters: IGalleryFilter[] = [
   {
     title: 'Status',
     icon: '/assets/common/status.svg',
-    list: [FilterType.REVEALED, FilterType.BOXED, FilterType.CAN_BE_SWAP],
+    list: [
+      {
+        label: FilterType.REVEALED,
+        numDisplay: 'Loading...',
+      },
+      {
+        label: FilterType.BOXED,
+        numDisplay: 'Loading...',
+      },
+      {
+        label: FilterType.CAN_BE_SWAP,
+        numDisplay: 'Loading...',
+      },
+    ],
   },
 ]
 
@@ -30,7 +43,11 @@ const Gallery = () => {
   const [extendedIndices, setExtendedIndices] = useState<number[]>([])
   const [selectedFilters, setSelectedFilters] = useState<string[]>([])
 
+  const [fetchedAdd, setFetchedAdd] = useState<boolean>(false)
   const [allData, setAllData] = useState<INFTData[]>([])
+  const [filteredMap, setFilteredMap] = useState<Map<string, INFTData[]>>(
+    new Map(),
+  )
   const [filteredData, setFilteredData] = useState<INFTData[]>([])
   const [showingIndex, setShowingIndex] = useState<number>(20)
 
@@ -50,12 +67,33 @@ const Gallery = () => {
       await sleep(5000)
 
       fetchData()
+    } else {
+      setFetchedAdd(true)
     }
   }
 
   useEffect(() => {
     fetchData()
   }, [])
+
+  useEffect(() => {
+    if (allData.length === 0) return
+
+    const m = new Map<string, INFTData[]>()
+
+    // for Revealed
+    const revealed = allData.filter((d) => !d.imageUrl.includes('ipfs'))
+    m.set(FilterType.REVEALED, revealed)
+
+    // for Boxed
+    const boxed = allData.filter((d) => d.imageUrl.includes('ipfs'))
+    m.set(FilterType.BOXED, boxed)
+
+    // for Can be Swap
+    // TODO: get contract holding data
+
+    setFilteredMap(m)
+  }, [allData])
 
   useEffect(() => {
     if (allData.length === 0) return
@@ -68,19 +106,15 @@ const Gallery = () => {
     let f: INFTData[] = []
 
     if (selectedFilters.includes(FilterType.REVEALED)) {
-      const tmp = allData.filter((d) => !d.imageUrl.includes('ipfs'))
-
-      f = [...f, ...tmp]
+      f = [...f, ...(filteredMap.get(FilterType.REVEALED) || [])]
     }
 
     if (selectedFilters.includes(FilterType.BOXED)) {
-      const tmp = allData.filter((d) => d.imageUrl.includes('ipfs'))
-
-      f = [...f, ...tmp]
+      f = [...f, ...(filteredMap.get(FilterType.BOXED) || [])]
     }
 
     if (selectedFilters.includes(FilterType.CAN_BE_SWAP)) {
-      // TODO: get contract holding data
+      f = [...f, ...(filteredMap.get(FilterType.CAN_BE_SWAP) || [])]
     }
 
     // sort by name in ascending order
@@ -97,7 +131,7 @@ const Gallery = () => {
     })
 
     setFilteredData(f)
-  }, [selectedFilters, allData])
+  }, [selectedFilters, allData, filteredMap])
 
   // infinite scroll
   useEffect(() => {
@@ -116,10 +150,42 @@ const Gallery = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const updateFilterLength = (filters: IGalleryFilter[]) => {
+    if (!fetchedAdd) return filters
+
+    const f = filters
+
+    for (let i = 0; i < f.length; i++) {
+      const filter = f[i]
+
+      if (filter.title === 'Status') {
+        filter.list = filter.list.map((l) => {
+          if (l.label === FilterType.REVEALED) {
+            l.numDisplay = (
+              filteredMap.get(FilterType.REVEALED) || []
+            ).length.toString()
+          } else if (l.label === FilterType.BOXED) {
+            l.numDisplay = (
+              filteredMap.get(FilterType.BOXED) || []
+            ).length.toString()
+          } else if (l.label === FilterType.CAN_BE_SWAP) {
+            l.numDisplay = (
+              filteredMap.get(FilterType.CAN_BE_SWAP) || []
+            ).length.toString()
+          }
+
+          return l
+        })
+      }
+    }
+
+    return f
+  }
+
   return (
     <div className='max-w-11xl mx-auto w-full px-4 flex-1 flex pt-[128px]'>
       <GalleryFilter
-        filters={filters}
+        filters={updateFilterLength(filters)}
         extendedIndices={extendedIndices}
         setExtendedIndices={setExtendedIndices}
         selectedFilters={selectedFilters}

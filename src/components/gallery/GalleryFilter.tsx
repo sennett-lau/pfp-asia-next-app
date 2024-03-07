@@ -78,11 +78,11 @@ const GalleryFilter = (props: Props) => {
                   <div
                     key={ii}
                     className='flex items-center gap-2 cursor-pointer'
-                    onClick={() => handleSelect(item)}
+                    onClick={() => handleSelect(item.label)}
                   >
                     <Image
                       src={
-                        selectedFilters.includes(item)
+                        selectedFilters.includes(item.label)
                           ? '/assets/common/checked.svg'
                           : '/assets/common/unchecked.svg'
                       }
@@ -90,7 +90,12 @@ const GalleryFilter = (props: Props) => {
                       width={28}
                       height={28}
                     />
-                    <p className='text-secondary-500'>{item}</p>
+                    <p className='text-secondary-500'>
+                      {item.label}
+                      <span className='text-sm text-secondary-400'>
+                        {` (${item.numDisplay})`}
+                      </span>
+                    </p>
                   </div>
                 ))}
               </div>
