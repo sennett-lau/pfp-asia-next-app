@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -21,7 +22,8 @@ const sections = [
       },
       {
         label: 'Origins',
-        text: 'https://twitter.com/ERC_1111/status/1757430150323749288',
+        text: 'X tweet',
+        url: 'https://twitter.com/ERC_1111/status/1757430150323749288',
         isUrl: true,
       },
     ],
@@ -44,7 +46,8 @@ const sections = [
       },
       {
         label: 'RED Paper',
-        text: 'https://twitter.com/PFPAsia/status/1754741367287517352',
+        text: 'X tweet',
+        url: 'https://twitter.com/PFPAsia/status/1754741367287517352',
         isUrl: true,
       },
     ],
@@ -111,33 +114,37 @@ const sections = [
 
 const REDT = () => {
   const [sectionIndex, setSectionIndex] = useState(0)
+  const [isToggled, setIsToggled] = useState(false)
   return (
     <div className='max-w-11xl mx-auto w-full px-4 flex-1 flex'>
-      <div className='flex-1 flex flex-col justify-center'>
+      <div className='flex-1 flex flex-col md:justify-center pt-[120px] md:pt-0'>
         <div className='flex flex-col relative'>
-          <div className='absolute -top-[160px] text-6xl font-bold text-primary-700'>
+          <div className='md:absolute -top-[160px] text-2xl md:text-6xl font-bold text-primary-700 mb-6 md:mb-0'>
             {sections[sectionIndex].title}
           </div>
           <table>
             <tbody>
               {sections[sectionIndex].contents.map((content, index) => (
-                <tr key={index}>
-                  <td className='w-[250px]'>
-                    <p className='text-secondary-500 text-xl font-bold py-2'>
+                <tr
+                  key={index}
+                  className='flex flex-col md:flex-row mb-4 md:mb-0'
+                >
+                  <td className='w-fit md:w-[250px]'>
+                    <p className='text-secondary-500 text-xl font-bold md:py-2'>
                       {content.label}:
                     </p>
                   </td>
                   <td>
                     {content.isUrl ? (
                       <Link
-                        href={content.text}
+                        href={content.url}
                         target='_blank'
                         className='text-primary-500 text-xl'
                       >
                         {content.text} ↗
                       </Link>
                     ) : (
-                      <p className='text-secondary-500 text-xl'>
+                      <p className='text-secondary-500 text-md md:text-xl'>
                         {content.text}
                       </p>
                     )}
@@ -146,9 +153,36 @@ const REDT = () => {
               ))}
             </tbody>
           </table>
+          <div
+            className='flex md:hidden absolute right-2 top-12 bg-white bg-opacity-25 backdrop-blur-4 rounded-md shadow-sm flex-col py-2 px-4 text-secondary-500 font-bold text-right'
+            onClick={() => setIsToggled(!isToggled)}
+          >
+            <div className='flex gap-2 justify-center'>
+              <p>More</p>
+              <Image
+                src='/assets/common/chevron.svg'
+                alt='Chevron'
+                width={12}
+                height={12}
+              />
+            </div>
+            <div
+              className={`flex flex-col gap-1 ${isToggled ? 'max-h-[300px]' : 'max-h-0'} overflow-hidden transition-all duration-300`}
+            >
+              {sections.map((section, index) => (
+                <p
+                  key={index}
+                  className={`text-sm font-bold cursor-pointer ${sectionIndex === index ? 'text-primary-500' : 'text-secondary-500'} transition-all duration-300`}
+                  onClick={() => setSectionIndex(index)}
+                >
+                  {section.tab}
+                </p>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-      <div className='w-1/3 flex flex-col items-end justify-center gap-12'>
+      <div className='w-1/3 hidden md:flex flex-col items-end justify-center gap-12'>
         {sections.map((section, index) => (
           <p
             key={index}
