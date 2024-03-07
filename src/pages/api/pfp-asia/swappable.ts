@@ -16,7 +16,6 @@ const handler = async (
 ) => {
   const chain = 'ethereum'
   const contractAddress = PFPASIA_CONTRACT_ADDRESS
-  const key = process.env.OPENSEA_API_KEY
 
   const header = {
     accept: 'application/json',
