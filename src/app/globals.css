@@ -53,7 +53,7 @@ body {
 }
 
 .isIndex .hamburger span {
-  background-color: white !important;
+  background-color: white;
 }
 
 .hamburger .line-1 {

@@ -24,7 +24,7 @@ const NavMenuItemContainer = (props: Props) => {
         <div className='flex flex-col'>
           <div className='py-3 flex justify-between' onClick={toggleList}>
             {!icon ? (
-              <p className='font-bold text-xl text-black'>{text}</p>
+              <p className='font-black text-xl text-black'>{text}</p>
             ) : (
               <Image src={icon} alt={text} width={20} height={20} />
             )}
@@ -49,7 +49,7 @@ const NavMenuItemContainer = (props: Props) => {
       ) : (
         <Link href={href!} className='outline-none'>
           <div className='py-3 flex justify-between'>
-            <p className='font-bold text-xl text-black'>{text}</p>
+            <p className='font-black text-xl text-black'>{text}</p>
             {icon && <Image src={icon} alt={text} width={16} height={16} />}
           </div>
         </Link>
