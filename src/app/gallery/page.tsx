@@ -1,5 +1,5 @@
 'use client'
-import { getPFPAsiaNFTData } from '@/api/next'
+import { getPFPAsiaNFTData, getPFPAsiaSwappable } from '@/api/next'
 import GalleryFilter from '@/components/gallery/GalleryFilter'
 import GalleryItems, { INFTData } from '@/components/gallery/GalleryItems'
 import { formatData } from '@/utils/nft'
@@ -51,6 +51,8 @@ const Gallery = () => {
   const [filteredData, setFilteredData] = useState<INFTData[]>([])
   const [showingIndex, setShowingIndex] = useState<number>(20)
 
+  const [swappableTokenIds, setSwappableTokenIds] = useState<number[]>([])
+
   const fetchData = async () => {
     const data = await getPFPAsiaNFTData()
     const formattedData = data.nftData.map((d) => formatData(d))
@@ -72,8 +74,15 @@ const Gallery = () => {
     }
   }
 
+  const fetchSwappableTokenIds = async () => {
+    const tokenIds = await getPFPAsiaSwappable()
+    console.log('swappable: ', tokenIds)
+    setSwappableTokenIds(tokenIds)
+  }
+
   useEffect(() => {
     fetchData()
+    fetchSwappableTokenIds()
   }, [])
 
   useEffect(() => {
@@ -90,10 +99,13 @@ const Gallery = () => {
     m.set(FilterType.BOXED, boxed)
 
     // for Can be Swap
-    // TODO: get contract holding data
+    const canBeSwap = allData.filter((d) =>
+      swappableTokenIds.includes(parseInt(d.name.split(' ')[1])),
+    )
+    m.set(FilterType.CAN_BE_SWAP, canBeSwap)
 
     setFilteredMap(m)
-  }, [allData])
+  }, [allData, swappableTokenIds])
 
   useEffect(() => {
     if (allData.length === 0) return
@@ -131,7 +143,7 @@ const Gallery = () => {
     })
 
     setFilteredData(f)
-  }, [selectedFilters, allData, filteredMap])
+  }, [selectedFilters, allData, filteredMap, swappableTokenIds])
 
   // infinite scroll
   useEffect(() => {

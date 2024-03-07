@@ -18,8 +18,6 @@ const handler = async (
   const contractAddress = PFPASIA_CONTRACT_ADDRESS
   const key = process.env.OPENSEA_API_KEY
 
-  console.log('key', key)
-
   const header = {
     accept: 'application/json',
     'x-api-key': process.env.OPENSEA_API_KEY,
