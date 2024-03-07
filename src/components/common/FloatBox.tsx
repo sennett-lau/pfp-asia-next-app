@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 const FloatBox = () => {
   return (
-    <div className='h-20 flex px-4 items-center justify-between lg:justify-start bg-dark-500 md:bg-primary-600 fixed lg:left-[36px] bottom-[42px] rounded-md w-4/5 lg:w-fit'>
+    <div className='h-20 flex px-4 items-center justify-between lg:justify-start bg-dark-500 md:bg-primary-600 fixed lg:left-[36px] bottom-[42px] rounded-md w-11/12 md:w-4/5 lg:w-fit'>
       <div className='w-[115px] h-full relative'>
         <Image
           src='/assets/pfps/dan-1.png'

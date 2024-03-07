@@ -67,17 +67,17 @@ const sections = [
 
 const PFPAsia = () => {
   return (
-    <div className='max-w-11xl mx-auto w-full px-4 flex-1 flex flex-col pt-[160px]'>
-      <h1 className='text-5xl text-primary-700 font-bold mb-12'>
+    <div className='max-w-11xl mx-auto w-full px-4 flex-1 flex flex-col pt-[160px] pb-8 md:pb-0'>
+      <h1 className='text-2xl md:text-5xl text-primary-700 font-bold mb-12'>
         More on $PFPAsia
       </h1>
       <div className='grid grid-cols-1 lg:grid-cols-2 gap-[50px]'>
         {sections.map((section, i) => (
           <div key={i} className='flex flex-col gap-5'>
-            <p className='text-2xl font-bold text-secondary-500'>
+            <p className='text-xl md:text-2xl font-bold text-secondary-500'>
               {section.title}
             </p>
-            <div className='flex gap-8'>
+            <div className='flex gap-4 md:gap-8'>
               {section.items.map((item, ii) => (
                 <Link
                   href={item.href}

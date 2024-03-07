@@ -13,7 +13,7 @@ const StoryContainer: React.FC<Props> = (props) => {
 
   return (
     <div className='max-w-11xl mx-auto w-full px-4 flex-1 flex'>
-      <div className='flex flex-col flex-1 pt-[120px] md:pt-[160px] pb:8 md:pb-10'>
+      <div className='flex flex-col flex-1 pt-[120px] md:pt-[160px] pb-8 md:pb-10'>
         <h1 className='text-2xl md:text-6xl font-bold text-primary-700'>
           {title}
         </h1>
