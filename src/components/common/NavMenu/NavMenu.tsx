@@ -47,6 +47,7 @@ const NavMenu = (props: Props) => {
                       list={item.list}
                       href={item.href}
                       icon={item.icon}
+                      isTargetBlank={item.isTargetBlank}
                     />
                   </div>
                 ))}

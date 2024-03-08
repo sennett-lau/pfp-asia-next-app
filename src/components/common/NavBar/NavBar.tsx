@@ -28,7 +28,7 @@ export const navItems = [
   { text: 'REDT', href: '/redt' },
   { text: '$PFPASIA', href: '/pfpasia' },
   { text: 'GALLERY', href: '/gallery' },
-  { text: 'REDEX', href: PFPASIA_REDEX_URL },
+  { text: 'REDEX', href: PFPASIA_REDEX_URL, isTargetBlank: true },
   {
     text: 'x',
     icon: '/assets/icons/x.svg',
@@ -103,7 +103,12 @@ const NavBar = () => {
                 setShowListIndex={setShowListIndex}
               />
             ) : (
-              <NavItem text={item.text} href={item.href} icon={item.icon} />
+              <NavItem
+                text={item.text}
+                href={item.href}
+                icon={item.icon}
+                isTargetBlank={item.isTargetBlank}
+              />
             )}
           </div>
         )
