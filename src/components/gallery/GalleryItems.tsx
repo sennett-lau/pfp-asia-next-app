@@ -1,13 +1,15 @@
 import { INFTData } from '@/types'
+import Image from 'next/image'
 import { useState } from 'react'
 import GalleryDialog from './GalleryDialog'
 
 type Props = {
   data: INFTData[]
+  swappable: number[]
 }
 
 const GalleryItems = (props: Props) => {
-  const { data } = props
+  const { data, swappable } = props
 
   const [isToggled, setIsToggled] = useState(false)
   const [imageSrc, setImageSrc] = useState('')
@@ -17,14 +19,30 @@ const GalleryItems = (props: Props) => {
     setImageSrc(src)
   }
 
+  const isSwappable = (name: string) => {
+    const id = parseInt(name.split(' ')[1])
+    return swappable.includes(id)
+  }
+
   return (
     <div className='flex-1 pt-4 md:pt-9 px-0 md:px-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-x-6 gap-y-4'>
       {data.map((item, i) => (
         <div
           key={i}
-          className='flex flex-col group cursor-pointer'
+          className='flex flex-col group cursor-pointer relative'
           onClick={() => handleImageClick(item.imageUrl)}
         >
+          <div
+            className={`absolute top-2 right-2 rounded-full bg-white shadow-md w-[28px] h-[28px] flex justify-center items-center ${isSwappable(item.name) ? 'visible' : 'invisible'} group-hover:scale-[102%] z-10`}
+          >
+            <Image
+              src='/assets/common/swap.svg'
+              alt='swap'
+              width={16}
+              height={16}
+              className='transform translate-x-[1px]'
+            />
+          </div>
           <img
             src={item.imageUrl}
             alt='dan'

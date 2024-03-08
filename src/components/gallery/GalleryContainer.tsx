@@ -160,7 +160,7 @@ const GalleryContainer = (props: Props) => {
           setFilterString={setFilterString}
         />
       </div>
-      <GalleryItems data={filteredData.slice(0, showingIndex)} />
+      <GalleryItems data={filteredData.slice(0, showingIndex)} swappable={swappableTokenIds} />
       <GalleryFilterButton
         filters={updateFilterLength(filters)}
         extendedIndices={extendedIndices}
