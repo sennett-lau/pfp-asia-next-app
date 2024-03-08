@@ -20,12 +20,12 @@ const Nvuwa = () => {
         main character in the story.
       </p>
       <p>
-        As we get older, we all realize that the world doesn't turn for us. But
+        As we get older, we all realize that the world doesn&apos;t turn for us. But
         I hope that whoever you are, whether you are experiencing happiness or
         pain. When you are most confused, you can find that free self in your
         inner world. Life is not perfect, but you are perfect to yourself.
       </p>
-      <p>Find the self you've forgotten about and stay true to who you are.</p>
+      <p>Find the self you&apos;ve forgotten about and stay true to who you are.</p>
       <p>In a world of grey, be #RED.</p>
     </StoryContainer>
   )
