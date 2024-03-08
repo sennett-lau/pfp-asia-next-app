@@ -1,4 +1,24 @@
 import StoryContainer from '@/components/story/StoryContainer'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title:
+    'RED Scene | PFPAsia - 10K PFP project with next-gen asset REDT Protocol',
+  alternates: {
+    canonical: 'https://pfpasia.com/red-scene',
+    languages: {
+      'en-US': 'https://pfpasia.com/red-scene',
+    },
+  },
+  openGraph: {
+    title:
+      'RED Scene | PFPAsia - 10K PFP project with next-gen asset REDT Protocol',
+  },
+  twitter: {
+    title:
+      'RED Scene | PFPAsia - 10K PFP project with next-gen asset REDT Protocol',
+  },
+}
 
 const RedScene = () => {
   return (

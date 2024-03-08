@@ -1,4 +1,24 @@
 import StoryContainer from '@/components/story/StoryContainer'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title:
+    'New Era | PFPAsia - 10K PFP project with next-gen asset REDT Protocol',
+  alternates: {
+    canonical: 'https://pfpasia.com/new-era',
+    languages: {
+      'en-US': 'https://pfpasia.com/new-era',
+    },
+  },
+  openGraph: {
+    title:
+      'New Era | PFPAsia - 10K PFP project with next-gen asset REDT Protocol',
+  },
+  twitter: {
+    title:
+      'New Era | PFPAsia - 10K PFP project with next-gen asset REDT Protocol',
+  },
+}
 
 const NewEra = () => {
   return (

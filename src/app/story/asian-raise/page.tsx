@@ -1,4 +1,24 @@
 import StoryContainer from '@/components/story/StoryContainer'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title:
+    'Asian Raise | PFPAsia - 10K PFP project with next-gen asset REDT Protocol',
+  alternates: {
+    canonical: 'https://pfpasia.com/asian-raise',
+    languages: {
+      'en-US': 'https://pfpasia.com/asian-raise',
+    },
+  },
+  openGraph: {
+    title:
+      'Asian Raise | PFPAsia - 10K PFP project with next-gen asset REDT Protocol',
+  },
+  twitter: {
+    title:
+      'Asian Raise | PFPAsia - 10K PFP project with next-gen asset REDT Protocol',
+  },
+}
 
 const AsianRaise = () => {
   return (
