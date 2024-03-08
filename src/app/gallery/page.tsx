@@ -156,15 +156,6 @@ const Gallery = () => {
   // infinite scroll
   useEffect(() => {
     const handleScroll = () => {
-
-      console.log('----------------------------------------------')
-      console.log(`window.innerHeight: ${window.innerHeight}`)
-      console.log(`document.documentElement.scrollTop: ${document.documentElement.scrollTop}`)
-      console.log(`added: ${window.innerHeight + document.documentElement.scrollTop}`)
-      console.log(`document.documentElement.offsetHeight: ${document.documentElement.offsetHeight}`)
-      console.log(`is it greater than: ${document.documentElement.offsetHeight - 300}`)
-      console.log(`answer: ${window.innerHeight + document.documentElement.scrollTop > document.documentElement.offsetHeight - 300}`)
-      console.log('----------------------------------------------')
       if (
         window.innerHeight + document.documentElement.scrollTop <
         document.documentElement.offsetHeight - 300
