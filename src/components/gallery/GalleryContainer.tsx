@@ -4,6 +4,7 @@ import GalleryFilterButton from '@/components/gallery/GalleryFilterButton'
 import GalleryItems from '@/components/gallery/GalleryItems'
 import { FilterType, IGalleryFilter, INFTData } from '@/types'
 import { useEffect, useState } from 'react'
+import GalleryToTopButton from './GalleryToTopButton'
 
 type Props = {
   filters: IGalleryFilter[]
@@ -169,6 +170,7 @@ const GalleryContainer = (props: Props) => {
         filterString={filterString}
         setFilterString={setFilterString}
       />
+      <GalleryToTopButton />
     </div>
   )
 }
