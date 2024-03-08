@@ -1,19 +1,19 @@
 import { OPENSEA_API_URL, PFPASIA_CONTRACT_ADDRESS } from '@/config/links'
 import { PFPASIA_REDT1_TOTAL_SUPPLY } from '@/config/pfpasia'
+import { APIPfpAsiaResData } from '@/types'
 import axios from 'axios'
-import dotenv from 'dotenv'
-import type { NextApiRequest, NextApiResponse } from 'next'
+import { getPFPAsiaNFTDataService } from './pfpasia'
 
-dotenv.config()
+export const getPFPAsiaNFTData = async (): Promise<APIPfpAsiaResData> => {
+  const data = await getPFPAsiaNFTDataService()
 
-export type APIPfpAsiaSwappableResData = {
-  tokenIds: number[]
+  return {
+    nftData: data,
+    isAll: data.length === PFPASIA_REDT1_TOTAL_SUPPLY,
+  }
 }
 
-const handler = async (
-  req: NextApiRequest,
-  res: NextApiResponse<APIPfpAsiaSwappableResData>,
-) => {
+export const getPFPAsiaSwappable = async (): Promise<number[]> => {
   const chain = 'ethereum'
   const contractAddress = PFPASIA_CONTRACT_ADDRESS
 
@@ -38,11 +38,7 @@ const handler = async (
       ) <= PFPASIA_REDT1_TOTAL_SUPPLY,
   )
 
-  const tokenIds = filtered.map((nft: any) =>
+  return filtered.map((nft: any) =>
     parseInt(nft.opensea_url.split('/')[nft.opensea_url.split('/').length - 1]),
   )
-
-  return res.status(200).json({ tokenIds })
 }
-
-export default handler
