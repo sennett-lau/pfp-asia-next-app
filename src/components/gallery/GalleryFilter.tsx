@@ -1,5 +1,5 @@
 'use client'
-import { IGalleryFilter } from '@/app/gallery/page'
+import { IGalleryFilter } from '@/types'
 import Image from 'next/image'
 
 type Props = {

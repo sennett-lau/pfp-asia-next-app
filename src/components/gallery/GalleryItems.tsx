@@ -1,11 +1,6 @@
+import { INFTData } from '@/types'
 import { useState } from 'react'
 import GalleryDialog from './GalleryDialog'
-
-export interface INFTData {
-  imageUrl: string
-  project: string
-  name: string
-}
 
 type Props = {
   data: INFTData[]

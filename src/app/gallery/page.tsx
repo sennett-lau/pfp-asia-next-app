@@ -2,16 +2,11 @@
 import { getPFPAsiaNFTData, getPFPAsiaSwappable } from '@/api/next'
 import GalleryFilter from '@/components/gallery/GalleryFilter'
 import GalleryFilterButton from '@/components/gallery/GalleryFilterButton'
-import GalleryItems, { INFTData } from '@/components/gallery/GalleryItems'
+import GalleryItems from '@/components/gallery/GalleryItems'
+import { IGalleryFilter, INFTData } from '@/types'
 import { formatData } from '@/utils/nft'
 import { sleep } from '@/utils/time'
 import { useEffect, useState } from 'react'
-
-export interface IGalleryFilter {
-  title: string
-  icon: string
-  list: { label: string; numDisplay: string }[]
-}
 
 enum FilterType {
   REVEALED = 'Revealed',

@@ -1,10 +1,10 @@
 'use client'
 
-import { IGalleryFilter } from '@/app/gallery/page'
+import { IGalleryFilter } from '@/types'
 import { Dialog, Transition } from '@headlessui/react'
+import Image from 'next/image'
 import React, { Fragment, useState } from 'react'
 import GalleryFilter from './GalleryFilter'
-import Image from 'next/image'
 
 type FilterButtonProps = {
   filters: IGalleryFilter[]
@@ -33,7 +33,7 @@ const GalleryFilterButton: React.FC<FilterButtonProps> = ({
         className='flex md:hidden items-center justify-center w-12 h-12 rounded-full bg-light-500/40 shadow-md fixed bottom-4 left-1/2 transform -translate-x-1/2'
         onClick={() => setIsToggled(true)}
       >
-        <Image 
+        <Image
           src='/assets/common/filter.svg'
           alt='filter'
           width={24}

@@ -1,4 +1,4 @@
-import { INFTData } from '@/components/gallery/GalleryItems'
+import { INFTData } from '@/types'
 
 export const formatData = (data: any): INFTData => {
   const isIPFS = data.image.includes('ipfs')
