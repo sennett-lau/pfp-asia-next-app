@@ -8,6 +8,7 @@ A community made PFPAsia Website that builds based on NextJS, TypeScript, and Ta
 
 - NodeJS
 - OpenSea API Key
+- MongoDB
 - Docker (Optional)
 
 ## Getting Started
@@ -52,7 +53,7 @@ docker build -t pfp-asia-next-app .
 3. Run the Docker container:
 
 ```bash
-docker run -d -p 1111:3000 -e "OPENSEA_API_KEY=your_api_key" pfp-asia-next-app:latest
+docker run -d -p 1111:3000 --env-file ./env pfp-asia-next-app:latest
 ```
 
 4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
