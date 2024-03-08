@@ -1,4 +1,4 @@
-import { IREDTSection } from "@/types"
+import { IREDTSection } from '@/types'
 
 type Props = {
   sections: IREDTSection[]

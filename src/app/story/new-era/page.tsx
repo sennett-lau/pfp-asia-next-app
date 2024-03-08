@@ -36,18 +36,19 @@ const NewEra = () => {
       <p>
         BAYC and Punk, numerous blue-chip cultural communities, long before
         avatars had multi-million Total Volume. Those who profited from exiting
-        DeFi chose to belittle them, calling them &quot;useless pictures.&quot; But now,
-        who has been proven wrong?
+        DeFi chose to belittle them, calling them &quot;useless pictures.&quot;
+        But now, who has been proven wrong?
       </p>
       <p>
         The era of inscriptions created by Ordi. People who dabbled in NFTs
-        expressed, &apos;This is just a mark in the stone.&apos; They watched countless
-        inscriptions being issued. But now, who has been proven wrong?
+        expressed, &apos;This is just a mark in the stone.&apos; They watched
+        countless inscriptions being issued. But now, who has been proven wrong?
       </p>
       <p>
         We are on the verge of an unprecedented Web3 extravaganza. After people
-        experience the &apos;empty step&apos; brought by colored glasses, should we not
-        understand the new narratives and assets in this cycle in advance?
+        experience the &apos;empty step&apos; brought by colored glasses, should
+        we not understand the new narratives and assets in this cycle in
+        advance?
       </p>
       <p>
         We introduced the #REDT protocol in the early stages, which is a
@@ -58,18 +59,20 @@ const NewEra = () => {
       <p>
         When a complete object with only single liquidity gains the ability to
         transform granularity at any time, this complete object will
-        simultaneously possess both &quot;uniqueness&quot; and &quot;liquidity.&quot; When
-        everything in the ecosystem has this characteristic, the exchange and
-        transactions between them will completely disrupt traditional forms.
+        simultaneously possess both &quot;uniqueness&quot; and
+        &quot;liquidity.&quot; When everything in the ecosystem has this
+        characteristic, the exchange and transactions between them will
+        completely disrupt traditional forms.
       </p>
       <p>
         It is challenging to compare this new form with existing products in the
         world, just as BTC is similar to gold, Gas Coin on public chains is
         similar to currency, and Tokens are similar to equity and points. This
-        universal asset is abstracted as something like &quot;pure ownership tokens.&quot;
-        The 10K PFP assets no longer need to issue fungible tokens because they
-        are inherently fungible tokens. Similarly, the 21 million BTC do not
-        need to issue entirely new NFTs because they are inherently NFTs.
+        universal asset is abstracted as something like &quot;pure ownership
+        tokens.&quot; The 10K PFP assets no longer need to issue fungible tokens
+        because they are inherently fungible tokens. Similarly, the 21 million
+        BTC do not need to issue entirely new NFTs because they are inherently
+        NFTs.
       </p>
       <p>
         Sounds magical? But this is the impending reality. Seems as unbelievable
@@ -85,12 +88,12 @@ const NewEra = () => {
         inevitable, but each success is always unique.
       </p>
       <p>
-        We don&apos;t seek the pity of the behemoths of the previous cycles, and, of
-        course, we won&apos;t indulge in self-hype, unilaterally praising our own
-        dreams. We simply pay more attention to the path ahead. #REDT, as a new
-        asset class, doesn&apos;t just need the favor of Token and NFT players. For
-        us, our supporters could come from anywhere, any organization, and any
-        background.
+        We don&apos;t seek the pity of the behemoths of the previous cycles,
+        and, of course, we won&apos;t indulge in self-hype, unilaterally
+        praising our own dreams. We simply pay more attention to the path ahead.
+        #REDT, as a new asset class, doesn&apos;t just need the favor of Token
+        and NFT players. For us, our supporters could come from anywhere, any
+        organization, and any background.
       </p>
       <p>
         REDT is not just NFT 2.0. Recently, we welcomed many investors, and
@@ -101,8 +104,8 @@ const NewEra = () => {
       <p>
         We feel both awe and incompleteness. Yes, in a sense, REDT does
         represent a 2.0 form of NFT/FT, but it is more of an entirely new asset
-        class. Just as we wouldn&apos;t say NFT is FT 2.0, we also wouldn&apos;t say
-        Inscription is NFT 2.0.
+        class. Just as we wouldn&apos;t say NFT is FT 2.0, we also wouldn&apos;t
+        say Inscription is NFT 2.0.
       </p>
       <p>We simply know that REDT is REDT.</p>
     </StoryContainer>

@@ -26,8 +26,8 @@ const AsianRaise = () => {
       <p>
         According to the team, the destiny for PFPAsia, is calling all Web3
         player can enjoy our Asian cultures. PFPAsia will do massive works on
-        this journey with their artist team, and building the Asia&apos;s most iconic
-        PFPs, through the high quality attributes and traits designs.
+        this journey with their artist team, and building the Asia&apos;s most
+        iconic PFPs, through the high quality attributes and traits designs.
       </p>
       <p>
         This collection use the Asian tradition key-color as the base color
@@ -35,9 +35,10 @@ const AsianRaise = () => {
         media.
       </p>
       <p>
-        Including more than 200 men&apos;s and women&apos;s hairstyles, thousands of
-        outfits and costumes, more than 100 emotional expressions, and also
-        numerous style from different career, traditional or urban careers.
+        Including more than 200 men&apos;s and women&apos;s hairstyles,
+        thousands of outfits and costumes, more than 100 emotional expressions,
+        and also numerous style from different career, traditional or urban
+        careers.
       </p>
       <p>
         In the design of the attributes, hundreds of Asian legends were
@@ -60,21 +61,22 @@ const AsianRaise = () => {
       </p>
       <p>
         Quality is the basic for PFPAsia. The original vision was to connect
-        creators with influential JPEGs, rather than focusing on such as &quot;total
-        trading volume,” &quot;mint price,&quot; &quot;market maker draw a beautiful line,”
-        Nvuwa will not create a “Shadow Mint&quot; strategy with high percentage of
-        control by team.
+        creators with influential JPEGs, rather than focusing on such as
+        &quot;total trading volume,” &quot;mint price,&quot; &quot;market maker
+        draw a beautiful line,” Nvuwa will not create a “Shadow Mint&quot;
+        strategy with high percentage of control by team.
       </p>
       <p>
-        Focusing on solving more important issues, &quot;resource allocation&quot;,
-        &quot;collective development&quot;, &quot;fair and transparent contributions&quot;,
-        &quot;transition from simple speculation to investment&quot;, &quot;not just an
-        economic model, but a business model&quot;, &quot;mutual learning and growth&quot;,
+        Focusing on solving more important issues, &quot;resource
+        allocation&quot;, &quot;collective development&quot;, &quot;fair and
+        transparent contributions&quot;, &quot;transition from simple
+        speculation to investment&quot;, &quot;not just an economic model, but a
+        business model&quot;, &quot;mutual learning and growth&quot;,
         &quot;sustainable and lasting benefits for all stakeholders&quot;.
       </p>
       <p>
-        Although it&apos;s still a winter for NFTs, it&apos;s not like many people said
-        that &quot;NFTs are dead&quot;.
+        Although it&apos;s still a winter for NFTs, it&apos;s not like many
+        people said that &quot;NFTs are dead&quot;.
       </p>
       <p>
         In fact, the bad NFTs are died, and the bad people left. Bad management
@@ -121,12 +123,13 @@ const AsianRaise = () => {
         different characters.
       </p>
       <p>
-        And that&apos;s just the first step, which will eliminate 94% of the original
-        result.
+        And that&apos;s just the first step, which will eliminate 94% of the
+        original result.
       </p>
       <p>
-        The team use multiple tools to improve quality. In this step, PFPAsia&apos;s
-        team used about 8 tools to fixing their quality with the human eyes.
+        The team use multiple tools to improve quality. In this step,
+        PFPAsia&apos;s team used about 8 tools to fixing their quality with the
+        human eyes.
       </p>
       <p>
         In the third step, they will use hand-drawing, PhotoShop, Adobe
