@@ -15,5 +15,5 @@ export type APIPfpAsiaSwappableResData = {
 export enum FilterType {
   REVEALED = 'Revealed',
   BOXED = 'Boxed',
-  CAN_BE_SWAP = 'Can be Swap',
+  SWAPPABLE = 'Swappable',
 }

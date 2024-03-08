@@ -18,7 +18,7 @@ const filters: IGalleryFilter[] = [
         numDisplay: 'Loading...',
       },
       {
-        label: FilterType.CAN_BE_SWAP,
+        label: FilterType.SWAPPABLE,
         numDisplay: 'Loading...',
       },
     ],

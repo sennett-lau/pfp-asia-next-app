@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 type Props = {
   text: string
-  list?: { text: string; href: string; isTargetBlank: boolean }[]
+  list?: { text: string; href: string; isTargetBlank?: boolean }[]
   href?: string
   icon?: string
   isTargetBlank?: boolean

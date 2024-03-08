@@ -39,11 +39,11 @@ const GalleryContainer = (props: Props) => {
     const boxed = nftData.filter((d) => d.imageUrl.includes('ipfs'))
     m.set(FilterType.BOXED, boxed)
 
-    // for Can be Swap
+    // for swappable
     const canBeSwap = nftData.filter((d) =>
       swappableTokenIds.includes(parseInt(d.name.split(' ')[1])),
     )
-    m.set(FilterType.CAN_BE_SWAP, canBeSwap)
+    m.set(FilterType.SWAPPABLE, canBeSwap)
 
     setFilteredMap(m)
   }, [])
@@ -72,8 +72,8 @@ const GalleryContainer = (props: Props) => {
       f = [...f, ...(filteredMap.get(FilterType.BOXED) || [])]
     }
 
-    if (selectedFilters.includes(FilterType.CAN_BE_SWAP)) {
-      f = [...f, ...(filteredMap.get(FilterType.CAN_BE_SWAP) || [])]
+    if (selectedFilters.includes(FilterType.SWAPPABLE)) {
+      f = [...f, ...(filteredMap.get(FilterType.SWAPPABLE) || [])]
     }
 
     if (filterString) {
@@ -133,9 +133,9 @@ const GalleryContainer = (props: Props) => {
             l.numDisplay = (
               filteredMap.get(FilterType.BOXED) || []
             ).length.toString()
-          } else if (l.label === FilterType.CAN_BE_SWAP) {
+          } else if (l.label === FilterType.SWAPPABLE) {
             l.numDisplay = (
-              filteredMap.get(FilterType.CAN_BE_SWAP) || []
+              filteredMap.get(FilterType.SWAPPABLE) || []
             ).length.toString()
           }
 
