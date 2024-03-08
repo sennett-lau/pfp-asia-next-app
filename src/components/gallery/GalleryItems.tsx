@@ -23,7 +23,7 @@ const GalleryItems = (props: Props) => {
   }
 
   return (
-    <div className='flex-1 pt-4 md:pt-9 px-0 md:px-8 grid grid-cols-2 md:grid-cols-5 gap-x-6 gap-y-4'>
+    <div className='flex-1 pt-4 md:pt-9 px-0 md:px-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-x-6 gap-y-4'>
       {data.map((item, i) => (
         <div
           key={i}

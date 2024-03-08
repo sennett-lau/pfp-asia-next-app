@@ -1,6 +1,7 @@
 'use client'
 import { getPFPAsiaNFTData, getPFPAsiaSwappable } from '@/api/next'
 import GalleryFilter from '@/components/gallery/GalleryFilter'
+import GalleryFilterButton from '@/components/gallery/GalleryFilterButton'
 import GalleryItems, { INFTData } from '@/components/gallery/GalleryItems'
 import { formatData } from '@/utils/nft'
 import { sleep } from '@/utils/time'
@@ -204,7 +205,19 @@ const Gallery = () => {
 
   return (
     <div className='max-w-11xl mx-auto w-full px-4 flex-1 flex pt-24 md:pt-[128px]'>
-      <GalleryFilter
+      <div className='w-[280px] hidden md:block'>
+        <GalleryFilter
+          filters={updateFilterLength(filters)}
+          extendedIndices={extendedIndices}
+          setExtendedIndices={setExtendedIndices}
+          selectedFilters={selectedFilters}
+          setSelectedFilters={setSelectedFilters}
+          filterString={filterString}
+          setFilterString={setFilterString}
+        />
+      </div>
+      <GalleryItems data={filteredData.slice(0, showingIndex)} />
+      <GalleryFilterButton
         filters={updateFilterLength(filters)}
         extendedIndices={extendedIndices}
         setExtendedIndices={setExtendedIndices}
@@ -213,7 +226,6 @@ const Gallery = () => {
         filterString={filterString}
         setFilterString={setFilterString}
       />
-      <GalleryItems data={filteredData.slice(0, showingIndex)} />
     </div>
   )
 }

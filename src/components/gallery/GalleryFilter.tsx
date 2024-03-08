@@ -40,7 +40,7 @@ const GalleryFilter = (props: Props) => {
   }
 
   return (
-    <div className='w-[280px] relative hidden md:block'>
+    <div className='w-auto md:w-[280px] relative'>
       <div className='w-full flex flex-col sticky top-32 left-4'>
         <p className='text-primary-700 font-bold text-2xl mb-1'>FILTER</p>
         <div className='flex border-t-[1px] border-b-[1px] border-secondary-400 py-3 gap-2 items-center'>
