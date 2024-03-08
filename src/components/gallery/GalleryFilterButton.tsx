@@ -30,7 +30,7 @@ const GalleryFilterButton: React.FC<FilterButtonProps> = ({
   return (
     <>
       <button
-        className='flex md:hidden items-center justify-center w-12 h-12 rounded-full bg-light-500/40 shadow-md fixed bottom-4 left-1/2 transform -translate-x-1/2'
+        className='flex md:hidden items-center justify-center w-12 h-12 rounded-full bg-white shadow-md fixed bottom-4 left-1/2 transform -translate-x-1/2'
         onClick={() => setIsToggled(true)}
       >
         <Image

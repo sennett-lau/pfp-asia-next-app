@@ -11,7 +11,7 @@ const GalleryToTopButton = () => {
 
   return (
     <button
-      className='flex items-center justify-center w-12 h-12 rounded-full bg-light-500/40 shadow-md fixed bottom-4 right-4'
+      className='flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md fixed bottom-4 right-4'
       onClick={backToTop}
     >
       <Image
