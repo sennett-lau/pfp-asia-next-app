@@ -42,16 +42,12 @@ const GalleryDialog: React.FC<Props> = ({
             leaveFrom='opacity-100 scale-100'
             leaveTo='opacity-0 scale-95'
           >
-            <Dialog.Panel className='mx-auto max-w-sm rounded bg-white dark:bg-gray-800 overflow-hidden'>
-              <div>
-                {/* Next.js Image component for optimized images. Remember to adjust layout or size as needed. */}
-                <img
-                  src={imageSrc}
-                  alt='Gallery Image'
-                  width={500}
-                  height={500}
-                />
-              </div>
+            <Dialog.Panel className='mx-auto max-w-[768px] rounded bg-white dark:bg-gray-800 overflow-hidden'>
+              <img
+                src={imageSrc}
+                alt='Gallery Image'
+                className='w-[768px] object-cover aspect-square'
+              />
             </Dialog.Panel>
           </Transition.Child>
         </div>
