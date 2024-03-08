@@ -1,5 +1,4 @@
 import { Dialog, Transition } from '@headlessui/react'
-import Image from 'next/image'
 import React, { Fragment } from 'react'
 
 type Props = {
@@ -46,12 +45,11 @@ const GalleryDialog: React.FC<Props> = ({
             <Dialog.Panel className='mx-auto max-w-sm rounded bg-white dark:bg-gray-800 overflow-hidden'>
               <div>
                 {/* Next.js Image component for optimized images. Remember to adjust layout or size as needed. */}
-                <Image
+                <img
                   src={imageSrc}
                   alt='Gallery Image'
                   width={500}
                   height={500}
-                  objectFit='contain'
                 />
               </div>
             </Dialog.Panel>
