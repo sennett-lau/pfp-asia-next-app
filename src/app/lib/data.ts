@@ -4,12 +4,37 @@ import { APIPfpAsiaResData } from '@/types'
 import axios from 'axios'
 import { getPFPAsiaNFTDataService } from './pfpasia'
 
-export const getPFPAsiaNFTData = async (): Promise<APIPfpAsiaResData> => {
+export const getPFPAsiaNFTData = async (
+  isAll?: boolean,
+): Promise<APIPfpAsiaResData> => {
   const data = await getPFPAsiaNFTDataService()
+
+  if (!isAll) {
+    const header = {
+      accept: 'application/json',
+      'x-api-key': process.env.OPENSEA_API_KEY,
+    }
+    const resp = await axios.get(`${OPENSEA_API_URL}/collections/pfpasia`, {
+      headers: header,
+    })
+
+    const total_supply = resp.data.total_supply
+
+    const filtered = data.filter((nft) => {
+      const id = parseInt(nft.name.split(' #')[nft.name.split(' #').length - 1])
+
+      return id <= total_supply
+    })
+
+    return {
+      nftData: filtered,
+      isAll: true,
+    }
+  }
 
   return {
     nftData: data,
-    isAll: data.length === PFPASIA_REDT1_TOTAL_SUPPLY,
+    isAll: true,
   }
 }
 
