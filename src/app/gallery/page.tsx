@@ -25,8 +25,15 @@ const filters: IGalleryFilter[] = [
   },
 ]
 
-const Gallery = async () => {
-  const data = await getPFPAsiaNFTData()
+type GalleryProps = {
+  params: {}
+  searchParams: { [key: string]: string | string[] | undefined }
+}
+
+const Gallery = async (props: GalleryProps) => {
+  const searchParams = props.searchParams
+
+  const data = await getPFPAsiaNFTData(searchParams.all === 'true')
   const nftData = data.nftData.map((d) => formatData(d))
   const swappableTokenIds = await getPFPAsiaSwappable()
 
