@@ -47,7 +47,7 @@ export const getPFPAsiaSwappable = async (): Promise<number[]> => {
     'x-api-key': process.env.OPENSEA_API_KEY,
   }
   const resp = await axios.get(
-    `${OPENSEA_API_URL}/chain/${chain}/contract/${contractAddress}/nfts`,
+    `${OPENSEA_API_URL}/chain/${chain}/account/${contractAddress}/nfts`,
     {
       headers: header,
     },
