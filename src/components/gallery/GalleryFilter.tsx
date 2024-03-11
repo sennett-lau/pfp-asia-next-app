@@ -87,7 +87,7 @@ const GalleryFilter = (props: Props) => {
                 {filter.list.map((item, ii) => (
                   <div
                     key={ii}
-                    className='flex items-center gap-2 cursor-pointer'
+                    className='flex items-center cursor-pointer'
                     onClick={() => handleSelect(item.label)}
                   >
                     <Image
@@ -99,7 +99,17 @@ const GalleryFilter = (props: Props) => {
                       alt='check'
                       width={28}
                       height={28}
+                      className='mr-2'
                     />
+                    {item.icon && (
+                      <Image
+                        src={item.icon}
+                        alt={item.label}
+                        width={28}
+                        height={28}
+                        className='mr-1'
+                      />
+                    )}
                     <p className='text-secondary-500'>
                       {item.label}
                       <span className='text-sm text-secondary-400'>

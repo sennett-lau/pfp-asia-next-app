@@ -16,4 +16,5 @@ export enum FilterType {
   REVEALED = 'Revealed',
   BOXED = 'Boxed',
   SWAPPABLE = 'Swappable',
+  DRAGON_BALL = 'Dragon Ball',
 }

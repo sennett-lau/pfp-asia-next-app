@@ -23,6 +23,17 @@ const filters: IGalleryFilter[] = [
       },
     ],
   },
+  {
+    title: 'Collections',
+    icon: '/assets/common/collections.svg',
+    list: [
+      {
+        label: FilterType.DRAGON_BALL,
+        numDisplay: 'Loading...',
+        icon: '/assets/common/dragon-ball.svg',
+      },
+    ],
+  },
 ]
 
 type GalleryProps = {

@@ -12,6 +12,14 @@ type Props = {
   swappableTokenIds: number[]
 }
 
+// ==============================
+// Hardcoded token data
+// ==============================
+const dragonBallTokenIds = [
+  1955, 3874, 3888, 3903, 3910, 3918, 3927, 3941, 3956, 3963,
+]
+// ==============================
+
 const GalleryContainer = (props: Props) => {
   const { filters, nftData, swappableTokenIds } = props
 
@@ -45,6 +53,11 @@ const GalleryContainer = (props: Props) => {
     )
     m.set(FilterType.SWAPPABLE, canBeSwap)
 
+    const dragonBall = nftData.filter((d) =>
+      dragonBallTokenIds.includes(parseInt(d.name.split(' ')[1])),
+    )
+    m.set(FilterType.DRAGON_BALL, dragonBall)
+
     setFilteredMap(m)
   }, [])
 
@@ -74,6 +87,10 @@ const GalleryContainer = (props: Props) => {
 
     if (selectedFilters.includes(FilterType.SWAPPABLE)) {
       f = [...f, ...(filteredMap.get(FilterType.SWAPPABLE) || [])]
+    }
+
+    if (selectedFilters.includes(FilterType.DRAGON_BALL)) {
+      f = [...f, ...(filteredMap.get(FilterType.DRAGON_BALL) || [])]
     }
 
     if (filterString) {
@@ -123,25 +140,25 @@ const GalleryContainer = (props: Props) => {
     for (let i = 0; i < f.length; i++) {
       const filter = f[i]
 
-      if (filter.title === 'Status') {
-        filter.list = filter.list.map((l) => {
-          if (l.label === FilterType.REVEALED) {
-            l.numDisplay = (
-              filteredMap.get(FilterType.REVEALED) || []
-            ).length.toString()
-          } else if (l.label === FilterType.BOXED) {
-            l.numDisplay = (
-              filteredMap.get(FilterType.BOXED) || []
-            ).length.toString()
-          } else if (l.label === FilterType.SWAPPABLE) {
-            l.numDisplay = (
-              filteredMap.get(FilterType.SWAPPABLE) || []
-            ).length.toString()
-          }
+      filter.list = filter.list.map((l) => {
+        if (l.label === FilterType.REVEALED) {
+          l.numDisplay = (
+            filteredMap.get(FilterType.REVEALED) || []
+          ).length.toString()
+        } else if (l.label === FilterType.BOXED) {
+          l.numDisplay = (
+            filteredMap.get(FilterType.BOXED) || []
+          ).length.toString()
+        } else if (l.label === FilterType.SWAPPABLE) {
+          l.numDisplay = (
+            filteredMap.get(FilterType.SWAPPABLE) || []
+          ).length.toString()
+        } else if (l.label === FilterType.DRAGON_BALL) {
+          l.numDisplay = dragonBallTokenIds.length.toString()
+        }
 
-          return l
-        })
-      }
+        return l
+      })
     }
 
     return f
@@ -160,7 +177,10 @@ const GalleryContainer = (props: Props) => {
           setFilterString={setFilterString}
         />
       </div>
-      <GalleryItems data={filteredData.slice(0, showingIndex)} swappable={swappableTokenIds} />
+      <GalleryItems
+        data={filteredData.slice(0, showingIndex)}
+        swappable={swappableTokenIds}
+      />
       <GalleryFilterButton
         filters={updateFilterLength(filters)}
         extendedIndices={extendedIndices}
