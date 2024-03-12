@@ -114,6 +114,12 @@ const GalleryContainer = (props: Props) => {
       return 0
     })
 
+    // remove duplicates
+    f = f.filter((d, i) => {
+      const index = f.findIndex((f) => f.name === d.name)
+      return index === i
+    })
+
     setFilteredData(f)
   }, [selectedFilters, nftData, filteredMap, swappableTokenIds, filterString])
 
