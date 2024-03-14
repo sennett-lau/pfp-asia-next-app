@@ -2,7 +2,6 @@
 import {
   DISCORD_URL,
   PFPASIA_REDEX_URL,
-  PFPASIA_REWARD_URL,
   TELEGRAM_URL,
   X_CHINATOWN_1111_URL,
   X_ERC_1111_URL,
@@ -29,8 +28,21 @@ export const navItems = [
   { text: 'REDT', href: '/redt' },
   { text: '$PFPASIA', href: '/pfpasia' },
   { text: 'GALLERY', href: '/gallery' },
-  { text: 'REDEX', href: PFPASIA_REDEX_URL, isTargetBlank: true },
-  { text: 'REWARD', href: PFPASIA_REWARD_URL, isTargetBlank: true },
+  {
+    text: 'APP',
+    list: [
+      {
+        text: 'REDEX',
+        href: PFPASIA_REDEX_URL,
+        isTargetBlank: true,
+      },
+      {
+        text: 'REWARD',
+        href: 'https://apps.apple.com/us/app/pfpasia/id1570791843',
+        isTargetBlank: true,
+      },
+    ],
+  },
   {
     text: 'x',
     icon: '/assets/icons/x.svg',
