@@ -103,7 +103,7 @@ const NavBar = () => {
   }, [pathname])
 
   return (
-    <div className='hidden lg:flex gap-2 items-center'>
+    <div className='hidden lg:flex gap-2 pt-[11.5px]'>
       {navItems.map((item, index) => {
         return (
           <div key={index}>

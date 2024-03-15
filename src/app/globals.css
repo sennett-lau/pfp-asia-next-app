@@ -32,6 +32,10 @@ body {
   }
 }
 
+*:focus {
+  outline: none !important;
+}
+
 /* hamburger menu with 2 lines */
 .hamburger {
   display: flex;
