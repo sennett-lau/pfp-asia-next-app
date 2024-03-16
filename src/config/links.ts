@@ -1,6 +1,8 @@
 // PFPAsia site
 export const PFPASIA_REDEX_URL = 'https://red.pfp.asia'
 export const PFPASIA_REWARD_URL = 'https://reward.pfp.asia'
+export const PFPASIA_WHITELIST_URL = 'https://whitelist.pfp.asia'
+export const PFPASIA_MINT_URL = 'https://mint.pfp.asia'
 
 // X
 export const X_PFPASIA_URL = 'https://x.com/PFPAsia'

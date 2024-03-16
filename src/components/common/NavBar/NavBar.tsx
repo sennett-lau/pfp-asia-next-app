@@ -1,7 +1,10 @@
 'use client'
 import {
   DISCORD_URL,
+  PFPASIA_MINT_URL,
   PFPASIA_REDEX_URL,
+  PFPASIA_REWARD_URL,
+  PFPASIA_WHITELIST_URL,
   TELEGRAM_URL,
   X_CHINATOWN_1111_URL,
   X_ERC_1111_URL,
@@ -38,7 +41,17 @@ export const navItems = [
       },
       {
         text: 'REWARD',
-        href: 'https://apps.apple.com/us/app/pfpasia/id1570791843',
+        href: PFPASIA_REWARD_URL,
+        isTargetBlank: true,
+      },
+      {
+        text: 'WL CHECKER',
+        href: PFPASIA_WHITELIST_URL,
+        isTargetBlank: true,
+      },
+      {
+        text: 'MINT',
+        href: PFPASIA_MINT_URL,
         isTargetBlank: true,
       },
     ],
