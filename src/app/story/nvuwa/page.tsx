@@ -1,8 +1,10 @@
+import { metadata as baseMeta } from '@/app/layout'
 import StoryContainer from '@/components/story/StoryContainer'
 import { PFPASIA_SITE_URL } from '@/config/links'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  ...baseMeta,
   title: 'Nvuwa | PFPAsia - 10K PFP project with next-gen asset REDT Protocol',
   alternates: {
     canonical: `${PFPASIA_SITE_URL}/nvuwa`,
@@ -11,10 +13,12 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
+    ...baseMeta.openGraph,
     title:
       'Nvuwa | PFPAsia - 10K PFP project with next-gen asset REDT Protocol',
   },
   twitter: {
+    ...baseMeta.twitter,
     title:
       'Nvuwa | PFPAsia - 10K PFP project with next-gen asset REDT Protocol',
   },

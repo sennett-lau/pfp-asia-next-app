@@ -1,8 +1,10 @@
+import { metadata as baseMeta } from '@/app/layout'
 import StoryContainer from '@/components/story/StoryContainer'
 import { PFPASIA_SITE_URL } from '@/config/links'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  ...baseMeta,
   title:
     'RED Scene | PFPAsia - 10K PFP project with next-gen asset REDT Protocol',
   alternates: {
@@ -12,10 +14,12 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
+    ...baseMeta.openGraph,
     title:
       'RED Scene | PFPAsia - 10K PFP project with next-gen asset REDT Protocol',
   },
   twitter: {
+    ...baseMeta.twitter,
     title:
       'RED Scene | PFPAsia - 10K PFP project with next-gen asset REDT Protocol',
   },
