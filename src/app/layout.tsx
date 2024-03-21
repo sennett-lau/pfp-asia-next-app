@@ -1,12 +1,12 @@
 import '@/components/common/Header'
 import Header from '@/components/common/Header'
+import { PFPASIA_SITE_URL } from '@/config/links'
 import '@rainbow-me/rainbowkit/styles.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 import './globals.css'
 import Providers from './providers'
-import { PFPASIA_SITE_URL } from '@/config/links'
 
 const inter = Inter({ subsets: ['latin'] })
 const geomanist = localFont({

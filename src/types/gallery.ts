@@ -1,7 +1,7 @@
 export interface IGalleryFilter {
   title: string
   icon: string
-  list: { label: string; numDisplay: string, icon?: string }[]
+  list: { label: string; numDisplay: string; icon?: string }[]
 }
 
 export interface INFTData {

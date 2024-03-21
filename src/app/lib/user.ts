@@ -1,7 +1,9 @@
 import { IUser } from '@/types/user'
 import { PFPAsiaDB } from './mongodb'
 
-export const getUserByDiscordId = async (discordId: string): Promise<IUser | null> => {
+export const getUserByDiscordId = async (
+  discordId: string,
+): Promise<IUser | null> => {
   const collection = PFPAsiaDB.collection('User')
 
   const user = await collection.findOne({ discordId })
