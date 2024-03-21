@@ -30,6 +30,9 @@ const config: Config = {
         dark: {
           500: '#121212', // background
         },
+        discord: {
+          500: '#7289DA', // discord color
+        }
       },
       maxWidth: {
         '8xl': '88rem',
