@@ -14,6 +14,7 @@ export const connectDB = async () => {
 
   const client = new MongoClient(url, {
     w: 'majority',
+    maxConnecting: 3,
   })
 
   await client.connect()

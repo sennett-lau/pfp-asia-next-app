@@ -1,5 +1,10 @@
 import { checkPFPAsiaHolder } from '@/app/lib/data'
 import { connectDB } from '@/app/lib/mongodb'
+import {
+  getUserByDiscordId,
+  grantNFTHolderRole,
+  insertUser,
+} from '@/app/lib/user'
 import { DISCORD_API_URL } from '@/config/links'
 import axios from 'axios'
 import dotenv from 'dotenv'
@@ -28,7 +33,24 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Res>) => {
       return
     }
 
-    console.log('token', process.env.DISCORD_BOT_TOKEN)
+    const user = await getUserByDiscordId(discordUserId as string)
+
+    if (user) {
+      if (user.address !== address) {
+        res.status(200).json({ message: 'Address does not match' })
+        return
+      }
+      if (user.roleNFTHolder) {
+        res.status(200).json({ message: 'Role already granted' })
+        return
+      }
+    }
+
+    if (!user) {
+      await insertUser(discordUserId as string, address as string)
+    }
+
+    await grantNFTHolderRole(discordUserId as string, address as string)
 
     const url = `${DISCORD_API_URL}/guilds/${serverId}/members/${discordUserId}/roles/${roleId}`
 
