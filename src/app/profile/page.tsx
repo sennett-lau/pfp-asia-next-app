@@ -13,15 +13,18 @@ const Profile = () => {
 
   const [discordUsername, setDiscordUsername] = useState('')
   const [discordAvatar, setDiscordAvatar] = useState('')
+  const [discordUserId, setDiscordUserId] = useState('')
 
   const [walletAddress, setWalletAddress] = useState('')
 
   const [isHolder, setIsHolder] = useState(false)
 
   useEffect(() => {
-    if (session.data?.user?.name && session.data?.user?.image) {
-      setDiscordUsername(session.data.user.name)
-      setDiscordAvatar(session.data.user.image)
+    const s = session as typeof session & { data: { userId: string } }
+    if (s.data?.user?.name && s.data?.user?.image && s.data?.userId) {
+      setDiscordUsername(s.data.user.name)
+      setDiscordAvatar(s.data.user.image)
+      setDiscordUserId(s.data.userId)
     } else {
       setDiscordUsername('')
       setDiscordAvatar('')
@@ -42,13 +45,20 @@ const Profile = () => {
     try {
       const res = await axios.get(`/api/pfp-asia/is-holder?address=${address}`)
       setIsHolder(res.data.isHolder)
-      console.log(`${address} is holder: ${res.data.isHolder}`)
     } catch (error) {
       console.log(error)
     }
   }
 
-  const claimHolderRole = async () => {}
+  const claimHolderRole = async () => {
+    try {
+      const res = await axios.get(
+        `/api/discord/roles/grant?address=${walletAddress}&discordUserId=${discordUserId}`,
+      )
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div className='max-w-11xl mx-auto w-full px-4 flex md:pb-0 justify-center'>
