@@ -1,13 +1,14 @@
 import StoryContainer from '@/components/story/StoryContainer'
+import { PFPASIA_SITE_URL } from '@/config/links'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title:
     'Nvuwa | PFPAsia - 10K PFP project with next-gen asset REDT Protocol',
   alternates: {
-    canonical: 'https://pfpasia.com/nvuwa',
+    canonical: `${PFPASIA_SITE_URL}/nvuwa`,
     languages: {
-      'en-US': 'https://pfpasia.com/nvuwa',
+      'en-US': `${PFPASIA_SITE_URL}/nvuwa`,
     },
   },
   openGraph: {

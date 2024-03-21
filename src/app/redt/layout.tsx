@@ -1,13 +1,14 @@
 import FloatBox from '@/components/common/FloatBox'
-import type { ReactElement, ReactNode } from 'react'
+import { PFPASIA_SITE_URL } from '@/config/links'
 import type { Metadata } from 'next'
+import type { ReactElement, ReactNode } from 'react'
 
 export const metadata: Metadata = {
   title: 'REDT | PFPAsia - 10K PFP project with next-gen asset REDT Protocol',
   alternates: {
-    canonical: 'https://pfpasia.com/redt',
+    canonical: `${PFPASIA_SITE_URL}/redt`,
     languages: {
-      'en-US': 'https://pfpasia.com/redt',
+      'en-US': `${PFPASIA_SITE_URL}/redt`,
     },
   },
   openGraph: {

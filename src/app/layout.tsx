@@ -6,6 +6,7 @@ import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 import './globals.css'
 import Providers from './providers'
+import { PFPASIA_SITE_URL } from '@/config/links'
 
 const inter = Inter({ subsets: ['latin'] })
 const geomanist = localFont({
@@ -44,19 +45,19 @@ export const metadata: Metadata = {
   ],
   viewport: 'width=device-width, initial-scale=1.0',
   alternates: {
-    canonical: 'https://pfpasia.com/',
+    canonical: PFPASIA_SITE_URL,
     languages: {
-      'en-US': 'https://pfpasia.com/',
+      'en-US': PFPASIA_SITE_URL,
     },
   },
-  icons: ['https://pfpasia.com/assets/logo-pack/logo_128.png'],
+  icons: [`${PFPASIA_SITE_URL}/assets/logo-pack/logo_128.png`],
   openGraph: {
     title: 'HOME | PFPAsia - 10K PFP project with next-gen asset REDT Protocol',
     description:
       'PFPAsia is a 10K PFP project, with next-gen asset REDT Protocol. You can take a snapshot of this eye-catching PFPAsia avaters.',
     images: [
       {
-        url: 'https://pfpasia.com/assets/banner-pack/dan-banner-1.png',
+        url: `${PFPASIA_SITE_URL}/assets/banner-pack/dan-banner-1.png`,
         alt: 'PFPAsia',
         width: 3840,
         height: 2160,
@@ -66,7 +67,7 @@ export const metadata: Metadata = {
   twitter: {
     title: 'HOME | PFPAsia - 10K PFP project with next-gen asset REDT Protocol',
     images: {
-      url: 'https://pfpasia.com/assets/banner-pack/dan-banner-1.png',
+      url: `${PFPASIA_SITE_URL}/assets/banner-pack/dan-banner-1.png`,
       alt: 'PFPAsia',
       width: 3840,
       height: 2160,

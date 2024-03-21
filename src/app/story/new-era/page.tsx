@@ -1,13 +1,14 @@
 import StoryContainer from '@/components/story/StoryContainer'
+import { PFPASIA_SITE_URL } from '@/config/links'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title:
     'New Era | PFPAsia - 10K PFP project with next-gen asset REDT Protocol',
   alternates: {
-    canonical: 'https://pfpasia.com/new-era',
+    canonical: `${PFPASIA_SITE_URL}/new-era`,
     languages: {
-      'en-US': 'https://pfpasia.com/new-era',
+      'en-US': `${PFPASIA_SITE_URL}/new-era`,
     },
   },
   openGraph: {

@@ -1,3 +1,4 @@
+import { PFPASIA_SITE_URL } from '@/config/links'
 import type { Metadata } from 'next'
 import type { ReactElement, ReactNode } from 'react'
 
@@ -5,9 +6,9 @@ export const metadata: Metadata = {
   title:
     'Gallery | PFPAsia - 10K PFP project with next-gen asset REDT Protocol',
   alternates: {
-    canonical: 'https://pfpasia.com/gallery',
+    canonical: `${PFPASIA_SITE_URL}/gallery`,
     languages: {
-      'en-US': 'https://pfpasia.com/gallery',
+      'en-US': `${PFPASIA_SITE_URL}/gallery`,
     },
   },
   openGraph: {

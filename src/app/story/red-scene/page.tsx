@@ -1,13 +1,14 @@
 import StoryContainer from '@/components/story/StoryContainer'
+import { PFPASIA_SITE_URL } from '@/config/links'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title:
     'RED Scene | PFPAsia - 10K PFP project with next-gen asset REDT Protocol',
   alternates: {
-    canonical: 'https://pfpasia.com/red-scene',
+    canonical: '/red-scene',
     languages: {
-      'en-US': 'https://pfpasia.com/red-scene',
+      'en-US': `${PFPASIA_SITE_URL}red-scene`,
     },
   },
   openGraph: {
