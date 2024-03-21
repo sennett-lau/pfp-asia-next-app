@@ -27,6 +27,8 @@ const Profile = () => {
   // 0: not holder, 1: holder, 2: claimed, 3: Wallet Discord not matched
   const [claimRoleNFTHolderState, setClaimRoleNFTHolderState] = useState(0)
 
+  const [claimingIndex, setClaimingIndex] = useState(0)
+
   useEffect(() => {
     fetchUser()
     mockLoading()
@@ -73,12 +75,16 @@ const Profile = () => {
 
   const claimHolderRole = async () => {
     try {
+      setClaimingIndex(1)
+
       const res = await axios.get(
         `/api/discord/roles/grant?address=${walletAddress}&discordUserId=${discordUserId}`,
       )
     } catch (error) {
       console.log(error)
     }
+
+    setClaimingIndex(0)
   }
 
   const fetchUser = async () => {
@@ -94,7 +100,7 @@ const Profile = () => {
   }
 
   useEffect(() => {
-    if (!walletAddress || !user) {
+    if (!walletAddress || !discordUserId) {
       setClaimRoleNFTHolderState(0)
       return
     }
@@ -113,9 +119,13 @@ const Profile = () => {
     }
 
     setClaimRoleNFTHolderState(1)
-  }, [isHolder, user, walletAddress])
+  }, [isHolder, discordUserId, user, walletAddress])
 
   const getClaimNFTHolderButtonText = () => {
+    if (claimingIndex === 1) {
+      return 'Claiming...'
+    }
+
     if (claimRoleNFTHolderState === 0) {
       return 'Claim REDT1 Holder Role'
     }
@@ -174,7 +184,7 @@ const Profile = () => {
           <div className='flex flex-col w-full border-t-2 border-secondary-400 mt-4 pt-8'>
             <button onClick={claimHolderRole}>
               <div
-                className={`flex items-center justify-center w-full h-20 text-white rounded-lg hover:scale-105 transform transition-all duration-300 ${claimRoleNFTHolderState !== 1 ? 'bg-gray-400' : 'bg-discord-500'}`}
+                className={`flex items-center justify-center w-full h-20 text-white rounded-lg hover:scale-105 transform transition-all duration-300 ${claimRoleNFTHolderState !== 1 || claimingIndex === 1 ? 'bg-gray-400' : 'bg-discord-500'}`}
               >
                 {getClaimNFTHolderButtonText()}
               </div>
