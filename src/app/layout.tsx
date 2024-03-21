@@ -1,9 +1,11 @@
 import '@/components/common/Header'
 import Header from '@/components/common/Header'
+import '@rainbow-me/rainbowkit/styles.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 import './globals.css'
+import Providers from './providers'
 
 const inter = Inter({ subsets: ['latin'] })
 const geomanist = localFont({
@@ -71,7 +73,6 @@ export const metadata: Metadata = {
     },
   },
 }
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -80,10 +81,12 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${geomanist.variable} ${inter.className}`}>
-        <Header />
-        <main className='flex min-h-screen flex-col items-center justify-between'>
-          {children}
-        </main>
+        <Providers>
+          <Header />
+          <main className='flex min-h-screen flex-col items-center justify-between'>
+            {children}
+          </main>
+        </Providers>
       </body>
     </html>
   )

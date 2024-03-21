@@ -67,3 +67,25 @@ export const getPFPAsiaSwappable = async (): Promise<number[]> => {
     parseInt(nft.opensea_url.split('/')[nft.opensea_url.split('/').length - 1]),
   )
 }
+
+export const checkPFPAsiaHolder = async (address: string): Promise<boolean> => {
+  const chain = 'ethereum'
+  const contractAddress = PFPASIA_CONTRACT_ADDRESS
+
+  const header = {
+    accept: 'application/json',
+    'x-api-key': process.env.OPENSEA_API_KEY,
+  }
+  let resp = await axios.get(
+    `${OPENSEA_API_URL}/chain/${chain}/account/${address}/nfts`,
+    {
+      headers: header,
+    },
+  )
+
+  const nfts = resp.data.nfts
+
+  const filtered = nfts.filter((nft: any) => nft.contract === contractAddress)
+
+  return filtered.length > 0
+}

@@ -38,3 +38,6 @@ export const PFPASIA_CONTRACT_ADDRESS =
 
 // OpenSea Api
 export const OPENSEA_API_URL = 'https://api.opensea.io/api/v2'
+
+// Discord Api
+export const DISCORD_API_URL = 'https://discordapp.com/api'

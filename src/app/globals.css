@@ -79,3 +79,15 @@ body {
   transform: translateY(-50%) rotate(-45deg);
   background-color: black;
 }
+
+/* %^&=%^&=%^&=%^&=%^&=%^&=%^&=%^&=%^&=%^&=%^&=%^&=%^&=%^&= */
+/*           Custom Rainbowkit Wallet Connect Button        */
+/* %^&=%^&=%^&=%^&=%^&=%^&=%^&=%^&=%^&=%^&=%^&=%^&=%^&=%^&= */
+.custom-connect-button button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px !important;
+  background-color: #ee2737 !important;
+}
