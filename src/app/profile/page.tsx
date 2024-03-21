@@ -1,6 +1,7 @@
 'use client'
 
 import { ConnectButton } from '@rainbow-me/rainbowkit'
+import axios from 'axios'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
@@ -15,6 +16,8 @@ const Profile = () => {
 
   const [walletAddress, setWalletAddress] = useState('')
 
+  const [isHolder, setIsHolder] = useState(false)
+
   useEffect(() => {
     if (session.data?.user?.name && session.data?.user?.image) {
       setDiscordUsername(session.data.user.name)
@@ -28,10 +31,22 @@ const Profile = () => {
   useEffect(() => {
     if (account && account.address) {
       setWalletAddress(account.address)
+
+      updateIsHolder(account.address)
     } else {
       setWalletAddress('')
     }
   }, [account])
+
+  const updateIsHolder = async (address: string) => {
+    try {
+      const res = await axios.get(`/api/pfp-asia/is-holder?address=${address}`)
+      setIsHolder(res.data.isHolder)
+      console.log(`${address} is holder: ${res.data.isHolder}`)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const claimHolderRole = async () => {}
 
@@ -68,10 +83,6 @@ const Profile = () => {
         )}
         {walletAddress && discordUsername && discordAvatar && (
           <div className='flex flex-col w-full border-t-2 border-secondary-400 mt-4'>
-            <p className='text-2xl text-secondary-500 text-center my-4'>
-              Actions List
-            </p>
-
             <button onClick={claimHolderRole}>
               <div className='flex items-center justify-center w-full h-20 bg-discord-500 text-white rounded-lg hover:scale-105 transform transition-all duration-300'>
                 Claim REDT1 Holder Role
