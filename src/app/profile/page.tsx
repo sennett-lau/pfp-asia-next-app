@@ -52,11 +52,13 @@ const Profile = () => {
     if (account && account.address) {
       setWalletAddress(account.address)
 
-      updateIsHolder(account.address)
+      if (!isHolder && discordUserId) {
+        updateIsHolder(account.address)
+      }
     } else {
       setWalletAddress('')
     }
-  }, [account])
+  }, [account, isHolder, discordUserId])
 
   const mockLoading = async () => {
     setTimeout(() => {
