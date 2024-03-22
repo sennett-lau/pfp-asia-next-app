@@ -17,6 +17,24 @@ export const getUserByDiscordId = async (
   return rest as IUser
 }
 
+export const getUserByAddress = async (
+  address: string,
+): Promise<IUser | null> => {
+  const collection = PFPAsiaDB.collection('User')
+
+  const user = await collection.findOne({
+    address,
+  })
+
+  if (!user) {
+    return null
+  }
+
+  const { _id, ...rest } = user
+
+  return rest as IUser
+}
+
 export const insertUser = async (discordId: string, address: string) => {
   const collection = PFPAsiaDB.collection('User')
 

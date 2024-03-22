@@ -30,7 +30,6 @@ const Profile = () => {
   const [claimingIndex, setClaimingIndex] = useState(0)
 
   useEffect(() => {
-    fetchUser()
     mockLoading()
   })
 
@@ -40,8 +39,6 @@ const Profile = () => {
       setDiscordUsername(s.data.user.name)
       setDiscordAvatar(s.data.user.image)
       setDiscordUserId(s.data.userId)
-
-      fetchUser()
     } else {
       setDiscordUsername('')
       setDiscordAvatar('')
@@ -57,6 +54,9 @@ const Profile = () => {
       }
     } else {
       setWalletAddress('')
+    }
+    if ((account && account.address) || discordUserId) {
+      fetchUser()
     }
   }, [account, isHolder, discordUserId])
 
@@ -90,14 +90,19 @@ const Profile = () => {
   }
 
   const fetchUser = async () => {
-    if (!discordUserId) {
+    if (!discordUserId && !walletAddress) {
       return
     }
     try {
-      const res = await axios.get(`/api/user?discordUserId=${discordUserId}`)
+      const res = await axios.get(
+        `/api/user?discordUserId=${discordUserId}&address=${walletAddress}`,
+      )
       setUser(res.data.user)
-    } catch (error) {
-      console.log(error)
+    } catch (error: any) {
+      // console.log(error)
+      if (error.response?.data.message === 'User account does not match') {
+        setClaimRoleNFTHolderState(3)
+      }
     }
   }
 

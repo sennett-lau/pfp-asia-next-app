@@ -3,6 +3,7 @@ import { getUserByDiscordId } from '@/app/lib/user'
 import { IUser } from '@/types/user'
 import dotenv from 'dotenv'
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { getUserByAddress } from '../../app/lib/user'
 
 dotenv.config()
 
@@ -16,9 +17,25 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Res>) => {
     await connectDB()
 
     // get address from query
-    const { discordUserId } = req.query
+    const { discordUserId, address } = req.query
 
-    const user = await getUserByDiscordId(discordUserId as string)
+    let user: IUser | null = null
+
+    if (discordUserId) {
+      user = await getUserByDiscordId(discordUserId as string)
+
+      if (user && user.address !== address) {
+        res.status(400).json({ message: 'User account does not match' })
+      }
+    }
+
+    if (!user && address) {
+      user = await getUserByAddress(address as string)
+
+      if (user && user.discordId !== discordUserId) {
+        res.status(400).json({ message: 'User account does not match' })
+      }
+    }
 
     res.status(200).json({ user })
   } catch (error) {
