@@ -26,6 +26,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Res>) => {
     // get address from query
     const { address, discordUserId } = req.query
 
+    if (!address || !discordUserId) {
+      res.status(400).json({ message: 'Missing parameters' })
+      return
+    }
+
     const isHolder = await checkPFPAsiaHolder(address as string)
 
     if (!isHolder) {
