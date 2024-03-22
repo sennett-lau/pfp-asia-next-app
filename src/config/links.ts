@@ -38,3 +38,6 @@ export const OPENSEA_API_URL = 'https://api.opensea.io/api/v2'
 
 // Discord Api
 export const DISCORD_API_URL = 'https://discordapp.com/api'
+
+// Moralis Api
+export const MORALIS_API_URL = 'https://deep-index.moralis.io/api/v2.2/'
