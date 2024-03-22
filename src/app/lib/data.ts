@@ -1,5 +1,5 @@
-import { OPENSEA_API_URL, PFPASIA_CONTRACT_ADDRESS } from '@/config/links'
-import { PFPASIA_REDT1_TOTAL_SUPPLY } from '@/config/pfpasia'
+import { OPENSEA_API_URL } from '@/config/links'
+import { PFPASIA_CONTRACT_ADDRESS, PFPASIA_REDT1_TOTAL_SUPPLY } from '@/config/pfpasia'
 import { APIPfpAsiaResData } from '@/types'
 import axios from 'axios'
 import { getPFPAsiaNFTDataService } from './pfpasia'

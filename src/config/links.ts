@@ -33,10 +33,6 @@ export const DEXSCANNER_URL =
 export const NFTGO_URL = 'https://nftgo.io/collection/pfp-asia/swap'
 export const DUNE_URL = 'https://dune.com/sennettlau/pfp-asia'
 
-// Contract
-export const PFPASIA_CONTRACT_ADDRESS =
-  '0x413530a7beb9ff6c44e9e6c9001c93b785420c32'
-
 // OpenSea Api
 export const OPENSEA_API_URL = 'https://api.opensea.io/api/v2'
 
