@@ -6,11 +6,13 @@ import axios from 'axios'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import { useAccount } from 'wagmi'
+import { recoverMessageAddress } from 'viem'
+import { useAccount, useSignMessage } from 'wagmi'
 
 const Profile = () => {
   const session = useSession()
   const account = useAccount()
+  const { signMessageAsync } = useSignMessage()
 
   const [discordUsername, setDiscordUsername] = useState('')
   const [discordAvatar, setDiscordAvatar] = useState('')
@@ -76,8 +78,26 @@ const Profile = () => {
   }
 
   const claimHolderRole = async () => {
+    if (claimRoleNFTHolderState !== 1 || claimingIndex === 1) return
+
     try {
       setClaimingIndex(1)
+
+      const sign = await handleAuth(walletAddress as `0x${string}`)
+      if (!sign) {
+        setClaimingIndex(0)
+        return
+      }
+
+      const recovered = await recoverMessageAddress({
+        message: 'LFG PFPAsia',
+        signature: sign,
+      })
+
+      if (recovered !== walletAddress) {
+        setClaimingIndex(0)
+        return
+      }
 
       const res = await axios.get(
         `/api/discord/roles/grant?address=${walletAddress}&discordUserId=${discordUserId}`,
@@ -145,6 +165,21 @@ const Profile = () => {
     if (claimRoleNFTHolderState === 3) {
       return 'Wallet Discord not matched'
     }
+  }
+
+  const handleAuth = async (address: `0x${string}`) => {
+    try {
+      const signature = await signMessageAsync({
+        account: address,
+        message: 'LFG PFPAsia',
+      })
+      console.log('signature', signature)
+
+      return signature
+    } catch (error) {
+      console.log(error)
+    }
+    return null
   }
 
   return (
