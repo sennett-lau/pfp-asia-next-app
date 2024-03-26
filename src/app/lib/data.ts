@@ -1,7 +1,13 @@
 import { OPENSEA_API_URL } from '@/config/links'
-import { PFPASIA_CONTRACT_ADDRESS, PFPASIA_REDT1_TOTAL_SUPPLY } from '@/config/pfpasia'
+import {
+  PFPASIA_CONTRACT_ABI,
+  PFPASIA_CONTRACT_ADDRESS,
+  PFPASIA_REDT1_TOTAL_SUPPLY,
+} from '@/config/pfpasia'
 import { APIPfpAsiaResData } from '@/types'
 import axios from 'axios'
+import { Contract, InfuraProvider, formatUnits } from 'ethers'
+import { MulticallWrapper } from 'ethers-multicall-provider'
 import { getPFPAsiaNFTDataService } from './pfpasia'
 
 export const getPFPAsiaNFTData = async (
@@ -69,23 +75,30 @@ export const getPFPAsiaSwappable = async (): Promise<number[]> => {
 }
 
 export const checkPFPAsiaHolder = async (address: string): Promise<boolean> => {
-  const chain = 'ethereum'
-  const contractAddress = PFPASIA_CONTRACT_ADDRESS
+  const infuraApiKey = process.env.INFURA_API_KEY
 
-  const header = {
-    accept: 'application/json',
-    'x-api-key': process.env.OPENSEA_API_KEY,
-  }
-  let resp = await axios.get(
-    `${OPENSEA_API_URL}/chain/${chain}/account/${address}/nfts`,
-    {
-      headers: header,
-    },
+  const provider = new InfuraProvider(1, infuraApiKey)
+  // @ts-ignore
+  const callProvider = MulticallWrapper.wrap(provider)
+
+  const pfpasisaContract = new Contract(
+    PFPASIA_CONTRACT_ADDRESS,
+    PFPASIA_CONTRACT_ABI,
+    callProvider,
   )
 
-  const nfts = resp.data.nfts
+  const minted = await pfpasisaContract.minted()
+  const mintedInt = parseInt(formatUnits(minted, 0))
 
-  const filtered = nfts.filter((nft: any) => nft.contract === contractAddress)
+  const calls: any[] = []
 
-  return filtered.length > 0
+  for (let i = 1; i <= mintedInt; i++) {
+    calls.push(pfpasisaContract.ownerOf(i))
+  }
+
+  const data = await Promise.all(calls)
+
+  console.log(data)
+
+  return data.includes(address)
 }
